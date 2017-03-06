@@ -1,0 +1,23 @@
+@import "../common/variable.scss";
+
+// 登录界面
+.login_header {
+    @extend %login-register-header;
+}
+.login_main {
+    @extend %login-register-main;
+}
+.login_main_container {
+    @include login-register-box(700px, 400px, 320px, 200px, 220px);
+}
+
+// 注册界面
+.register_header {
+    @extend %login-register-header;
+}
+.register_main {
+    @extend %login-register-main
+}
+.register_main_container {
+    @include login-register-box(1050px, 540px, 350px, 230px, 250px);
+}

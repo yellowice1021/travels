@@ -1,0 +1,121 @@
+.login_header, .register_header {
+  width: 100%;
+  height: 120px;
+  background: url("../../img/logo.png") no-repeat 40px 20px; }
+
+.login_main, .register_main {
+  width: 100%;
+  height: 680px;
+  background: url("../../img/register_bg.jpg") center no-repeat; }
+
+.login_main_container {
+  width: 700px;
+  margin: 0 auto;
+  color: white; }
+  .login_main_container .main_header {
+    height: 90px;
+    line-height: 90px;
+    letter-spacing: 1px; }
+    .login_main_container .main_header .button {
+      border: solid thin white;
+      padding: 2px 15px;
+      cursor: pointer; }
+      .login_main_container .main_header .button:hover {
+        color: #B60F0E;
+        border: solid thin #B60F0E; }
+  .login_main_container .main_box {
+    height: 400px;
+    background-color: white; }
+  .login_main_container .box_header {
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    background-color: #B60F0E; }
+  .login_main_container .box_main {
+    width: 320px;
+    margin: 60px auto;
+    color: #666;
+    font-size: 16px; }
+    .login_main_container .box_main li {
+      margin-bottom: 17px; }
+    .login_main_container .box_main input {
+      width: 200px;
+      height: 20px; }
+    .login_main_container .box_main button {
+      width: 220px;
+      height: 37px;
+      background-color: #B60F0E;
+      border: solid thin #B60F0E;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      margin: 15px 0 0 90px;
+      cursor: pointer; }
+      .login_main_container .box_main button:hover {
+        background-color: #e4211f;
+        border: solid thin #e4211f; }
+  .login_main_container .name_text {
+    display: inline-block;
+    width: 100px;
+    text-align: right; }
+    .login_main_container .name_text i {
+      color: #B60F0E; }
+
+.register_main_container {
+  width: 1050px;
+  margin: 0 auto;
+  color: white; }
+  .register_main_container .main_header {
+    height: 90px;
+    line-height: 90px;
+    letter-spacing: 1px; }
+    .register_main_container .main_header .button {
+      border: solid thin white;
+      padding: 2px 15px;
+      cursor: pointer; }
+      .register_main_container .main_header .button:hover {
+        color: #B60F0E;
+        border: solid thin #B60F0E; }
+  .register_main_container .main_box {
+    height: 540px;
+    background-color: white; }
+  .register_main_container .box_header {
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px;
+    background-color: #B60F0E; }
+  .register_main_container .box_main {
+    width: 350px;
+    margin: 60px auto;
+    color: #666;
+    font-size: 16px; }
+    .register_main_container .box_main li {
+      margin-bottom: 17px; }
+    .register_main_container .box_main input {
+      width: 230px;
+      height: 20px; }
+    .register_main_container .box_main button {
+      width: 250px;
+      height: 37px;
+      background-color: #B60F0E;
+      border: solid thin #B60F0E;
+      font-weight: bold;
+      color: white;
+      text-align: center;
+      margin: 15px 0 0 90px;
+      cursor: pointer; }
+      .register_main_container .box_main button:hover {
+        background-color: #e4211f;
+        border: solid thin #e4211f; }
+  .register_main_container .name_text {
+    display: inline-block;
+    width: 100px;
+    text-align: right; }
+    .register_main_container .name_text i {
+      color: #B60F0E; }
+
+/*# sourceMappingURL=users.css.map */
