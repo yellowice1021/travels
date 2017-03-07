@@ -1,12 +1,27 @@
-.search_container {
+.search_container, .detail_container {
   width: 1000px;
   margin: 0 auto;
   border-left: solid 1px #d3d3d3;
-  border-right: solid 1px #d3d3d3; }
+  border-right: solid 1px #d3d3d3;
+  background-color: white; }
+
+.search_box, .detail_box, .comment_box {
+  width: 960px;
+  margin: 0 auto; }
+
+.detail_trip_header, .comment_header {
+  height: 50px;
+  line-height: 50px; }
+  .detail_trip_header i, .comment_header i {
+    width: 50px;
+    height: 50px;
+    float: left; }
+  .detail_trip_header h4, .comment_header h4 {
+    float: left;
+    font-size: 28px;
+    margin-left: 10px; }
 
 .search_box {
-  width: 960px;
-  margin: 0 auto;
   padding: 20px 0; }
 
 .search_header {
@@ -35,7 +50,9 @@
     border: solid thin #B60F0E; }
 
 .search_introduce {
-  width: 100%; }
+  width: 100%;
+  padding-bottom: 40px;
+  border-bottom: solid thin #d3d3d3; }
   .search_introduce h4 {
     font-size: 25px; }
   .search_introduce img {
@@ -71,8 +88,168 @@
   font-size: 18px;
   color: #666; }
   .search_text a:hover {
-    color: #B60F0E; }
+    color: #B60F0E;
+    text-decoration: underline; }
 .search_text p {
   padding: 2px 10px; }
+
+.detail_box {
+  padding-top: 30px; }
+
+.detail_person_box {
+  padding-bottom: 40px;
+  border-bottom: solid thin #d3d3d3; }
+  .detail_person_box img {
+    float: left;
+    width: 250px;
+    height: 220px; }
+
+.detail_person_intoduce {
+  width: 650px;
+  float: left;
+  margin-left: 20px; }
+
+.detail_person h4 {
+  font-size: 24px;
+  float: left; }
+.detail_person span {
+  float: right; }
+
+.detail_text {
+  margin-top: 18px; }
+  .detail_text p {
+    margin-bottom: 10px;
+    line-height: 25px; }
+
+.detail_title {
+  font-weight: bold; }
+
+.detail_trip_box {
+  margin-top: 10px; }
+
+.detail_day_box {
+  margin-top: 20px; }
+
+.deatil_day_text {
+  background-color: #dedede; }
+  .deatil_day_text h4 {
+    width: 90px;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    background-color: #9a9a9a;
+    color: white;
+    text-align: center; }
+
+.detail_day_place {
+  height: 40px;
+  float: left;
+  line-height: 40px;
+  margin-left: 20px; }
+  .detail_day_place li {
+    float: left;
+    padding: 0; }
+
+.detail_day_arrange {
+  margin-left: 40px;
+  border-left: solid thin #d3d3d3;
+  padding: 20px 0 30px 40px;
+  border-bottom: solid thin #d3d3d3; }
+
+.arrange_box {
+  margin-bottom: 30px; }
+
+.arrange_header {
+  position: relative; }
+  .arrange_header i {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    position: absolute;
+    left: -57px;
+    border-radius: 50%;
+    border: solid thin #fb9103; }
+  .arrange_header h4 {
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    margin-bottom: 10px; }
+
+.arrange_introduce {
+  line-height: 24px; }
+
+.arrange_picture li {
+  float: left;
+  margin-right: 10px;
+  padding-top: 10px; }
+.arrange_picture img {
+  width: 150px;
+  height: 120px;
+  cursor: pointer; }
+
+.detail_comment_box {
+  margin-top: 20px; }
+
+.comment_write_box {
+  padding: 10px 20px; }
+  .comment_write_box textarea {
+    width: 100%;
+    height: 120px;
+    resize: none;
+    padding: 10px;
+    font-size: 14px;
+    border: solid thin #aaaaaa; }
+  .comment_write_box button {
+    padding: 8px 30px;
+    background-color: #9a9a9a;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: solid thin #9a9a9a;
+    cursor: pointer;
+    margin-top: 5px; }
+    .comment_write_box button:hover {
+      background-color: #B60F0E;
+      border: solid thin #B60F0E; }
+
+.comment_detail_box {
+  padding: 20px 0 80px 20px; }
+  .comment_detail_box img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    float: left; }
+  .comment_detail_box li {
+    padding: 20px 0;
+    border-bottom: solid thin #d3d3d3; }
+
+.comment_text_box {
+  width: 840px;
+  float: left;
+  margin-left: 20px; }
+
+.comment_text_name h4 {
+  font-size: 20px;
+  float: left; }
+.comment_text_name span {
+  float: right; }
+
+.comment_detail_text {
+  height: 48px;
+  margin-top: 10px; }
+
+.comment_page_box {
+  text-align: center;
+  margin-top: 40px; }
+  .comment_page_box a {
+    padding: 4px 8px;
+    display: inline-block;
+    border: solid thin #d3d3d3;
+    color: #666; }
+    .comment_page_box a:hover {
+      background-color: #dedede; }
+  .comment_page_box .active {
+    background-color: #9a9a9a;
+    color: white; }
 
 /*# sourceMappingURL=search.css.map */

@@ -1,5 +1,8 @@
 @import "../common/variable.scss";
 
+body {
+    background-color: white;
+}
 // 登录界面
 .login_header {
     @extend %login-register-header;

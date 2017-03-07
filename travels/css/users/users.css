@@ -8,6 +8,9 @@
   height: 680px;
   background: url("../../img/register_bg.jpg") center no-repeat; }
 
+body {
+  background-color: white; }
+
 .login_main_container {
   width: 700px;
   margin: 0 auto;
