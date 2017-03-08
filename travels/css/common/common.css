@@ -138,4 +138,18 @@ ul li {
   .common_footer_box li {
     margin: 30px 0 0 70px; }
 
+.comment_page_box {
+  text-align: center;
+  margin-top: 40px; }
+  .comment_page_box a {
+    padding: 4px 8px;
+    display: inline-block;
+    border: solid thin #d3d3d3;
+    color: #666; }
+    .comment_page_box a:hover {
+      background-color: #dedede; }
+  .comment_page_box .active {
+    background-color: #9a9a9a;
+    color: white; }
+
 /*# sourceMappingURL=common.css.map */

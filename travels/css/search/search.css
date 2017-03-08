@@ -9,20 +9,84 @@
   width: 960px;
   margin: 0 auto; }
 
-.detail_trip_header, .comment_header {
+.detail_trip_box .header, .comment_header {
   height: 50px;
   line-height: 50px; }
-  .detail_trip_header i, .comment_header i {
+  .detail_trip_box .header i, .comment_header i {
     width: 50px;
     height: 50px;
     float: left; }
-  .detail_trip_header h4, .comment_header h4 {
+  .detail_trip_box .header h4, .comment_header h4 {
     float: left;
     font-size: 28px;
     margin-left: 10px; }
 
+.detail_trip_box .day_box {
+  margin-top: 20px; }
+.detail_trip_box .day_text {
+  background-color: #dedede; }
+  .detail_trip_box .day_text h4 {
+    width: 90px;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    background-color: #9a9a9a;
+    color: white;
+    text-align: center; }
+.detail_trip_box .day_place {
+  height: 40px;
+  float: left;
+  line-height: 40px;
+  margin-left: 20px; }
+  .detail_trip_box .day_place li {
+    float: left;
+    padding: 0; }
+.detail_trip_box .day_arrange {
+  margin-left: 40px;
+  border-left: solid thin #d3d3d3;
+  padding: 20px 0 30px 40px;
+  border-bottom: solid thin #d3d3d3; }
+.detail_trip_box .arrange_box {
+  margin-bottom: 30px; }
+.detail_trip_box .arrange_header {
+  position: relative; }
+  .detail_trip_box .arrange_header i {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    position: absolute;
+    left: -57px;
+    border-radius: 50%;
+    border: solid thin #fb9103; }
+  .detail_trip_box .arrange_header h4 {
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    margin-bottom: 10px; }
+
+.search_main_box li {
+  float: left;
+  border: solid thin #d3d3d3;
+  padding-bottom: 10px;
+  margin: 0 10px 30px 10px; }
+.search_main_box img {
+  width: 290px;
+  height: 160px; }
+.search_main_box a {
+  display: block; }
+
+.search_text a {
+  padding: 10px;
+  font-size: 18px;
+  color: #666; }
+  .search_text a:hover {
+    color: #B60F0E;
+    text-decoration: underline; }
+.search_text p {
+  padding: 2px 10px; }
+
 .search_box {
-  padding: 20px 0; }
+  padding: 20px 0 80px 0; }
 
 .search_header {
   margin: 30px 0; }
@@ -72,27 +136,6 @@
 .introduce_title {
   font-weight: bold; }
 
-.search_main_box li {
-  float: left;
-  border: solid thin #d3d3d3;
-  padding-bottom: 10px;
-  margin: 0 10px 30px 10px; }
-.search_main_box img {
-  width: 290px;
-  height: 160px; }
-.search_main_box a {
-  display: block; }
-
-.search_text a {
-  padding: 10px;
-  font-size: 18px;
-  color: #666; }
-  .search_text a:hover {
-    color: #B60F0E;
-    text-decoration: underline; }
-.search_text p {
-  padding: 2px 10px; }
-
 .detail_box {
   padding-top: 30px; }
 
@@ -126,54 +169,6 @@
 
 .detail_trip_box {
   margin-top: 10px; }
-
-.detail_day_box {
-  margin-top: 20px; }
-
-.deatil_day_text {
-  background-color: #dedede; }
-  .deatil_day_text h4 {
-    width: 90px;
-    height: 40px;
-    float: left;
-    line-height: 40px;
-    background-color: #9a9a9a;
-    color: white;
-    text-align: center; }
-
-.detail_day_place {
-  height: 40px;
-  float: left;
-  line-height: 40px;
-  margin-left: 20px; }
-  .detail_day_place li {
-    float: left;
-    padding: 0; }
-
-.detail_day_arrange {
-  margin-left: 40px;
-  border-left: solid thin #d3d3d3;
-  padding: 20px 0 30px 40px;
-  border-bottom: solid thin #d3d3d3; }
-
-.arrange_box {
-  margin-bottom: 30px; }
-
-.arrange_header {
-  position: relative; }
-  .arrange_header i {
-    width: 34px;
-    height: 34px;
-    display: inline-block;
-    position: absolute;
-    left: -57px;
-    border-radius: 50%;
-    border: solid thin #fb9103; }
-  .arrange_header h4 {
-    height: 30px;
-    line-height: 30px;
-    font-size: 18px;
-    margin-bottom: 10px; }
 
 .arrange_introduce {
   line-height: 24px; }
@@ -237,19 +232,5 @@
 .comment_detail_text {
   height: 48px;
   margin-top: 10px; }
-
-.comment_page_box {
-  text-align: center;
-  margin-top: 40px; }
-  .comment_page_box a {
-    padding: 4px 8px;
-    display: inline-block;
-    border: solid thin #d3d3d3;
-    color: #666; }
-    .comment_page_box a:hover {
-      background-color: #dedede; }
-  .comment_page_box .active {
-    background-color: #9a9a9a;
-    color: white; }
 
 /*# sourceMappingURL=search.css.map */

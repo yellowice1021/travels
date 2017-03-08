@@ -6,7 +6,7 @@
 }
 .search_box {
     @extend %container-box;
-    padding: 20px 0;
+    padding: 20px 0 80px 0;
 }
 .search_header {
     margin: 30px 0;
@@ -66,33 +66,10 @@
     font-weight: bold;
 }
 .search_main_box {
-    li {
-        float: left;
-        border: solid thin $border-color;
-        padding-bottom: 10px;
-        margin: 0 10px 30px 10px;
-    }
-    img {
-        width: 290px;
-        height: 160px;
-    }
-    a {
-        display: block;
-    }
+    @extend %trips-box;
 }
 .search_text {
-    a {
-        padding: 10px;   
-        font-size: 18px;
-        color: #666;
-        &:hover {
-            color: $login-register-color;
-            text-decoration: underline;
-        }
-    }
-    p {
-        padding: 2px 10px;
-    }
+    @extend %trips-text;
 }
 // 详情页面
 .detail_container {
@@ -137,61 +114,7 @@
 }
 .detail_trip_box {
     margin-top: 10px;
-}
-.detail_trip_header {
-    @extend %detail-title;
-}
-.detail_day_box {
-    margin-top: 20px;
-}
-.deatil_day_text {
-    background-color: #dedede;
-    h4 {
-        width: 90px;
-        height: 40px;
-        float: left;
-        line-height: 40px;
-        background-color: #9a9a9a;
-        color: white;
-        text-align: center;
-    }
-}
-.detail_day_place {
-    height: 40px;
-    float: left;
-    line-height: 40px;
-    margin-left: 20px;
-    li {
-        float: left;
-        padding: 0;
-    }
-}
-.detail_day_arrange {
-    margin-left: 40px;
-    border-left: solid thin $border-color;
-    padding: 20px 0 30px 40px;
-    border-bottom: solid thin $border-color;
-}
-.arrange_box {
-    margin-bottom: 30px;
-}
-.arrange_header {
-    position: relative;
-    i{
-        width: 34px;
-        height: 34px;
-        display: inline-block; 
-        position: absolute;
-        left: -57px;
-        border-radius: 50%;
-        border: solid thin #fb9103;  
-    }
-    h4 {
-        height: 30px;
-        line-height: 30px;
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
+    @extend %detail-release-box;
 }
 .arrange_introduce {
     line-height: 24px;
@@ -273,21 +196,3 @@
     height: 48px;
     margin-top: 10px;
 }
-.comment_page_box {
-    text-align: center;
-    margin-top: 40px;
-    a {
-        padding: 4px 8px;
-        display: inline-block;
-        border: solid thin $border-color;
-        color: #666;
-        &:hover {
-            background-color: #dedede;
-        }
-    }
-    .active {
-        background-color: #9a9a9a;
-        color: white;
-    }
-}
-

@@ -114,3 +114,110 @@ $border-color: #d3d3d3;             // 边框颜色
         margin-left: 10px;
     }
 }
+
+// 发布行程按钮
+%trip-button {
+    height: 50px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: #18aaf2;
+    border: solid thin #18aaf2;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+        background-color: #49baf1;
+    }
+}
+
+// 详情页面、发布行程页面布局
+%detail-release-box {
+    .header {
+        @extend %detail-title;
+    }
+    .day_box {
+        margin-top: 20px;
+    }
+    .day_text {
+        background-color: #dedede;
+        h4 {
+            width: 90px;
+            height: 40px;
+            float: left;
+            line-height: 40px;
+            background-color: #9a9a9a;
+            color: white;
+            text-align: center;
+        }
+    }
+    .day_place {
+        height: 40px;
+        float: left;
+        line-height: 40px;
+        margin-left: 20px;
+        li {
+            float: left;
+            padding: 0;
+        }
+    }
+    .day_arrange {
+        margin-left: 40px;
+        border-left: solid thin $border-color;
+        padding: 20px 0 30px 40px;
+        border-bottom: solid thin $border-color;
+    }
+    .arrange_box {
+        margin-bottom: 30px;
+    }
+    .arrange_header {
+        position: relative;
+        i{
+            width: 34px;
+            height: 34px;
+            display: inline-block; 
+            position: absolute;
+            left: -57px;
+            border-radius: 50%;
+            border: solid thin #fb9103;  
+        }
+        h4 {
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// 行程搜索页面、我的行程页面、我的收藏页面行程布局
+%trips-box {
+    li {
+        float: left;
+        border: solid thin $border-color;
+        padding-bottom: 10px;
+        margin: 0 10px 30px 10px;
+    }
+    img {
+        width: 290px;
+        height: 160px;
+    }
+    a {
+        display: block;
+    }
+}
+
+// 行程搜索页面、我的行程页面、我的收藏页面文字布局
+%trips-text {
+    a {
+        padding: 10px;   
+        font-size: 18px;
+        color: #666;
+        &:hover {
+            color: $login-register-color;
+            text-decoration: underline;
+        }
+    }
+    p {
+        padding: 2px 10px;
+    }
+}

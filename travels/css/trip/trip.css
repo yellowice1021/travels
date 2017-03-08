@@ -1,0 +1,202 @@
+.trip_plan_container {
+  width: 1000px;
+  margin: 0 auto;
+  border-left: solid 1px #d3d3d3;
+  border-right: solid 1px #d3d3d3;
+  background-color: white; }
+
+.trip_plan_box {
+  width: 960px;
+  margin: 0 auto; }
+
+.plan_box .header {
+  height: 50px;
+  line-height: 50px; }
+  .plan_box .header i {
+    width: 50px;
+    height: 50px;
+    float: left; }
+  .plan_box .header h4 {
+    float: left;
+    font-size: 28px;
+    margin-left: 10px; }
+
+.release_place_main button, .release_map_box button {
+  height: 50px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: #18aaf2;
+  border: solid thin #18aaf2;
+  cursor: pointer;
+  font-size: 16px; }
+  .release_place_main button:hover, .release_map_box button:hover {
+    background-color: #49baf1; }
+
+.plan_box .day_box {
+  margin-top: 20px; }
+.plan_box .day_text {
+  background-color: #dedede; }
+  .plan_box .day_text h4 {
+    width: 90px;
+    height: 40px;
+    float: left;
+    line-height: 40px;
+    background-color: #9a9a9a;
+    color: white;
+    text-align: center; }
+.plan_box .day_place {
+  height: 40px;
+  float: left;
+  line-height: 40px;
+  margin-left: 20px; }
+  .plan_box .day_place li {
+    float: left;
+    padding: 0; }
+.plan_box .day_arrange {
+  margin-left: 40px;
+  border-left: solid thin #d3d3d3;
+  padding: 20px 0 30px 40px;
+  border-bottom: solid thin #d3d3d3; }
+.plan_box .arrange_box {
+  margin-bottom: 30px; }
+.plan_box .arrange_header {
+  position: relative; }
+  .plan_box .arrange_header i {
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    position: absolute;
+    left: -57px;
+    border-radius: 50%;
+    border: solid thin #fb9103; }
+  .plan_box .arrange_header h4 {
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    margin-bottom: 10px; }
+
+.release_place_container {
+  width: 100%;
+  height: 700px;
+  background: url("../../images/trip/trip.jpg") no-repeat;
+  background-size: 100% 100%; }
+
+.release_place_box {
+  width: 600px;
+  height: 500px;
+  margin: 0 auto;
+  padding-top: 70px; }
+
+.release_place_header {
+  text-align: center; }
+  .release_place_header h1 {
+    font-size: 48px;
+    color: white;
+    font-weight: normal; }
+  .release_place_header p {
+    color: white;
+    font-size: 16px;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    padding-top: 5px; }
+
+.release_place_main {
+  width: 600px;
+  margin: 30px auto; }
+  .release_place_main button {
+    width: 100%;
+    margin-top: 20px; }
+
+.place_input_box {
+  background-color: white;
+  opacity: 0.9; }
+
+.place_input {
+  padding: 15px 20px; }
+  .place_input span {
+    float: left;
+    padding-top: 5px;
+    margin-right: 10px; }
+  .place_input select {
+    width: 200px;
+    height: 30px;
+    float: left;
+    border: solid thin #d3d3d3;
+    margin-right: 5px; }
+
+.release_map_container {
+  width: 100%;
+  height: 600px; }
+
+#allmap {
+  width: 100%;
+  height: 100%; }
+
+.release_map_box {
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  opacity: 0.9; }
+  .release_map_box form {
+    padding: 30px 10px; }
+  .release_map_box h4 {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px 0; }
+  .release_map_box li {
+    padding: 10px 0; }
+  .release_map_box ul {
+    padding-left: 40px; }
+  .release_map_box input {
+    width: 240px;
+    height: 28px;
+    padding-left: 5px;
+    margin-left: 10px; }
+  .release_map_box button {
+    width: 90%; }
+
+.map_day_box a {
+  display: block;
+  background-color: #d0d3d4;
+  font-weight: bold;
+  float: left;
+  padding: 5px 7px;
+  color: #737373; }
+.map_day_box input {
+  width: 50px;
+  height: 25px;
+  border: solid thin #CCC;
+  text-align: center;
+  float: left;
+  margin-left: 0;
+  padding-left: 0; }
+.map_day_box label {
+  float: left; }
+
+.plan_box {
+  padding-top: 10px; }
+
+.arrange_input textarea {
+  width: 100%;
+  height: 100px;
+  resize: none; }
+
+.plan_button_box button {
+  width: 100%;
+  height: 50px;
+  color: white;
+  background-color: #B60F0E;
+  border: solid thin #B60F0E;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 40px 0;
+  cursor: pointer; }
+  .plan_button_box button:hover {
+    background-color: #9a9a9a;
+    border: solid thin #9a9a9a; }
+
+/*# sourceMappingURL=trip.css.map */
