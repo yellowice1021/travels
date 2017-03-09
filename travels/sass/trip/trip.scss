@@ -121,14 +121,11 @@
     }
 }
 // 行程计划安排界面
-.trip_plan_container {
-    @extend %left-right-border;
-}
-.trip_plan_box{
-    @extend %container-box;
+.trip_plan_box {
+    padding-bottom: 80px;
 }
 .plan_box {
-    padding-top: 10px;
+    padding-top: 20px;
     @extend %detail-release-box;
 }
 .arrange_input {

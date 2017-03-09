@@ -1,14 +1,3 @@
-.trip_plan_container {
-  width: 1000px;
-  margin: 0 auto;
-  border-left: solid 1px #d3d3d3;
-  border-right: solid 1px #d3d3d3;
-  background-color: white; }
-
-.trip_plan_box {
-  width: 960px;
-  margin: 0 auto; }
-
 .plan_box .header {
   height: 50px;
   line-height: 50px; }
@@ -177,8 +166,11 @@
 .map_day_box label {
   float: left; }
 
+.trip_plan_box {
+  padding-bottom: 80px; }
+
 .plan_box {
-  padding-top: 10px; }
+  padding-top: 20px; }
 
 .arrange_input textarea {
   width: 100%;

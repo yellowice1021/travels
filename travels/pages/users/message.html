@@ -2,12 +2,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>我的行程</title>
+		<title>个人资料管理</title>
 		<link rel="stylesheet" href="../../css/common/common.css" type="text/css"  />
 		<link rel="stylesheet" href="../../css/users/users.css" type="text/css"  />
 	</head>
 	<body>
-		<div class="trips_container">
+		<div class="message_container">
 			<!--导航栏信息-->
 			<div class="common_header">
 				<div class="header_box clearfix">
@@ -44,65 +44,95 @@
 				<div class="header_another_box"></div>
 			</div>
 			
-			<!--我的行程-->
+			<!--个人资料管理-->
 			<div class="comment_container">
-				<div class="comment_box my_trip_box">
-					<div class="trip_box_header">
+				<div class="comment_box my_message_box">
+					<div class="message_header">
 						<i style="background:url('../../img/icon.png') no-repeat 0 -100px"></i>
-						<h4>我的行程</h4>
+						<h4>个人资料</h4>
 					</div>
-					<div class="trip_box_main">
+					<div class="message_choose_box">
 						<ul class="clearfix">
 							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="trips_box_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
+								<a href="#">修改个人资料</a>
 							</li>
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="trips_box_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="trips_box_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="trips_box_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
+							<li class="active">
+								<a href="#">修改密码</a>
 							</li>
 						</ul>
 					</div>
-					<div class="comment_page_box">
-						<a href="#">上一页</a>
-						<a href="#" class="active">1</a>
-						<a href="#">2</a>
-						<a href="#">下一页</a>
+					<div class="message_box message_hidden">
+						<form class="clearfix">
+							<div class="message_img_box">
+								<img src="../../images/search/beijing.jpg"  />
+							</div>
+							<div class="message_data_box">
+								<ul>
+									<li>
+										<label>用户名：</label>
+										<input type="text"  />
+									</li>
+									<li class="clearfix">
+										<label class="float_left">性别：</label>
+										<div class="message_sex_box">
+											<span class="sex_box">
+												<input type="radio"  />
+												<span>男</span>
+											</span>
+											<span class="sex_box">
+												<input type="radio" />
+												<span>女</span>
+											</span>
+										</div>
+									</li>
+									<li>
+										<label>地区：</label>
+										<select>
+											<option>广东省</option>
+											<option>福建省</option>
+											<option>湖南省</option>
+											<option>湖北省</option>
+										</select>
+										<select>
+											<option>广州市</option>
+											<option>深圳市</option>
+											<option>珠海市</option>
+											<option>惠州市</option>
+										</select>
+									</li>
+									<li class="clearfix">
+										<label class="float_left">自我介绍：</label>
+										<textarea></textarea>
+									</li>
+								</ul>
+								<button>保存</button>
+							</div>
+						</form>
+					</div>
+					<div class="password_box">
+						<form class="clearfix">
+							<div class="password_data_box">
+								<ul>
+									<li>
+										<label>用户名：</label>
+										<input type="text"  />
+									</li>
+									<li>
+										<label>旧密码：</label>
+										<input type="password"  />
+									</li>
+									<li>
+										<label>新密码：</label>
+										<input type="password"  />
+									</li>
+								</ul>
+								<button>修改</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
+			
 			
 			<!--底部导航栏-->
 			<div class="common_footer">

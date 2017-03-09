@@ -1,11 +1,7 @@
 @import "../common/variable.scss";
 
 // 搜索页面
-.search_container {
-    @extend %left-right-border;
-}
 .search_box {
-    @extend %container-box;
     padding: 20px 0 80px 0;
 }
 .search_header {
@@ -72,11 +68,7 @@
     @extend %trips-text;
 }
 // 详情页面
-.detail_container {
-    @extend %left-right-border;
-}
 .detail_box {
-    @extend %container-box;
     padding-top: 30px;
 }
 .detail_person_box {

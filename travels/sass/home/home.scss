@@ -12,12 +12,8 @@
     }
 }
 // 主要内容
-.home_main_container {
-    @extend %left-right-border;
-}
-.home_main_hot_container {
-    @extend %container-box;
-    padding: 30px;
+.home_box {
+    padding: 30px 30px 80px 30px;
 }
 .main_hot_header {
     height: 40px;

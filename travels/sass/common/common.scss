@@ -131,6 +131,20 @@ ul li {
         }
     }
 }
+
+// 主要布局
+.comment_container {
+    width: 1000px;
+    margin: 0 auto;
+    border-left: solid 1px $border-color;
+    border-right: solid 1px $border-color;
+    background-color: white;
+}
+.comment_box {
+    width: 960px;
+    margin: 0 auto;
+}
+
 // 底部导航栏
 .common_footer {
     width: 100%;

@@ -119,6 +119,17 @@ ul li {
     .header_another_navigation li:hover {
       background: none; }
 
+.comment_container {
+  width: 1000px;
+  margin: 0 auto;
+  border-left: solid 1px #d3d3d3;
+  border-right: solid 1px #d3d3d3;
+  background-color: white; }
+
+.comment_box {
+  width: 960px;
+  margin: 0 auto; }
+
 .common_footer {
   width: 100%;
   border-top: solid thin #d3d3d3;
