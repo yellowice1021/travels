@@ -1,0 +1,190 @@
+@import "../common/variable.scss";
+
+// 搜索页面
+.search_box {
+    padding: 20px 0 80px 0;
+}
+.search_header {
+    margin: 30px 0;
+}
+.search_select {
+    padding: 10px 0;
+    span {
+        float: left;
+        width: 60px;
+        text-align: right;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+    li {
+        float: left;
+        margin-right: 20px;
+    }
+    ul {
+        float: left;
+    }
+    a {
+        color: #666;
+        padding: 2px 5px;
+        &:hover {
+            color: $login-register-color;
+        }
+    }
+    .active {
+        color: $login-register-color;
+        border: solid thin $login-register-color;
+    }
+}
+.search_introduce {
+    width: 100%;
+    padding-bottom: 40px;
+    border-bottom: solid thin $border-color;
+    h4 {
+        font-size: 25px;   
+    }
+    img {
+        width: 525px;
+        height: 295px;
+        margin-top: 10px;
+        float: left;
+    }
+}
+.search_introduce_box {
+    width:  400px;
+    float: left;
+    margin: 10px 0 0 20px;
+    line-height: 25px;
+    p {
+        margin-bottom: 10px;
+    }
+}
+.introduce_title {
+    font-weight: bold;
+}
+.search_main_box {
+    @extend %trips-box;
+}
+.search_text {
+    @extend %trips-text;
+}
+// 详情页面
+.detail_box {
+    padding-top: 30px;
+}
+.detail_person_box {
+    padding-bottom: 40px;
+    border-bottom: solid thin $border-color;
+    img {
+        float: left;
+        width: 250px;
+        height: 220px;
+    }
+}
+.detail_person_intoduce {
+    width: 650px;
+    float: left;
+    margin-left: 20px;
+}
+.detail_person {
+    h4 {
+        font-size: 24px;
+        float: left;
+    }
+    span {
+        float: right
+    }
+}
+.detail_text {
+    margin-top: 18px;
+    p {
+        margin-bottom: 10px;
+        line-height: 25px;
+    }
+}
+.detail_title {
+    font-weight: bold;
+}
+.detail_trip_box {
+    margin-top: 10px;
+    @extend %detail-release-box;
+}
+.arrange_introduce {
+    line-height: 24px;
+}
+.arrange_picture {
+    li {
+        float: left;
+        margin-right: 10px;
+        padding-top: 10px;
+    }
+    img {
+        width: 150px;
+        height: 120px;
+        cursor: pointer;
+    }
+}
+.detail_comment_box {
+    margin-top: 20px;
+}
+.comment_box {
+    @extend %container-box;
+}
+.comment_header {
+    @extend %detail-title;
+}
+.comment_write_box {
+    padding: 10px 20px;
+    textarea {
+        width: 100%;
+        height: 120px;
+        resize: none; 
+        padding: 10px;
+        font-size: 14px;
+        border: solid thin #aaaaaa;
+    }
+    button {
+        padding: 8px 30px;
+        background-color: #9a9a9a;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        border: solid thin #9a9a9a;
+        cursor: pointer;
+        margin-top: 5px;
+        &:hover {
+            background-color: $login-register-color;
+            border: solid thin $login-register-color;
+        }
+    }
+}
+.comment_detail_box {
+    padding: 20px 0 80px 20px;
+    img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        float: left;
+    }
+    li {
+        padding: 20px 0;
+        border-bottom: solid thin $border-color;
+    }
+}
+.comment_text_box {
+    width: 840px;
+    float: left;
+    margin-left: 20px;
+}
+.comment_text_name {
+    h4 {
+        font-size: 20px;   
+        float: left;
+    }
+    span {
+        float: right;
+    }
+}
+.comment_detail_text {
+    height: 48px;
+    margin-top: 10px;
+}
