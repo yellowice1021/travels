@@ -1,0 +1,320 @@
+$login-register-color: #B60F0E;          // 登录界面颜色
+$border-color: #d3d3d3;             // 边框颜色
+
+// 登录界面、注册界面头部信息
+%login-register-header {
+    width: 100%;
+    height: 120px;
+    background: url("../../img/logo.png") no-repeat 40px 20px;
+}
+// 登录界面、注册界面主要显示内容
+%login-register-main {
+    width: 100%;
+    height: 680px;
+    background: url("../../img/register_bg.jpg") center no-repeat;
+}
+// 登录界面、注册界面登录框
+@mixin login-register-box($width, $height, $box-width, $input-width, $button-width) {
+    width: $width;
+    margin: 0 auto;
+    color: white;
+    
+    // 立即注册
+    .main_header {
+        height: 90px;
+        line-height: 90px;
+        letter-spacing: 1px;
+        .button {
+            border: solid thin white;
+            padding: 2px 15px;
+            cursor: pointer;
+            color:white;
+            &:hover {
+                color: $login-register-color;
+                border: solid thin $login-register-color;
+            }
+        }
+    }
+    
+    // 登录框
+    .main_box {
+        height: $height;
+        background-color: white;
+    }
+    .box_header {
+        height: 60px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 60px;
+        background-color: $login-register-color;
+    }
+    .box_main {
+        width: $box-width;
+        margin: 60px auto;
+        color: #666;
+        font-size: 16px;
+        li {
+            margin-bottom: 17px;
+            position: relative;
+        }
+        input {
+            width: $input-width;
+            height: 20px;
+        }
+        button {
+            width: $button-width;
+            height: 37px;
+            background-color: $login-register-color;
+            border: solid thin $login-register-color;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin: 15px 0 0 90px;
+            cursor: pointer;
+            &:hover {
+                background-color: #e4211f;
+                border: solid thin #e4211f;
+            }
+        }
+    }
+    .name_text {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        i {
+            color: $login-register-color;
+        }
+    }
+}
+
+// 登录界面，注册界面提示框
+@mixin info_box($top, $left) {
+    width: 200px;
+    position: absolute;
+    left: $left;
+    top: $top;
+    color: $login-register-color;
+    font-size: 12px;
+    display: block;
+}
+
+// 详情页面标题内容
+%detail-title {
+    height: 50px;
+    line-height: 50px;
+    i {
+        width: 50px;
+        height: 50px;
+        float: left;
+    }
+    h4 {
+        float: left;
+        font-size: 28px;
+        margin-left: 10px;
+    }
+}
+
+// 发布行程按钮
+%trip-button {
+    height: 50px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: #18aaf2;
+    border: solid thin #18aaf2;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover {
+        background-color: #49baf1;
+    }
+}
+
+// 详情页面、发布行程页面布局
+%detail-release-box {
+    .header {
+        @extend %detail-title;
+    }
+    .day_box {
+        margin-top: 20px;
+    }
+    .day_text {
+        background-color: #dedede;
+        h4 {
+            width: 90px;
+            height: 40px;
+            float: left;
+            line-height: 40px;
+            background-color: #9a9a9a;
+            color: white;
+            text-align: center;
+        }
+    }
+    .day_place {
+        height: 40px;
+        float: left;
+        line-height: 40px;
+        margin-left: 20px;
+        li {
+            float: left;
+            padding: 0;
+        }
+    }
+    .day_arrange {
+        margin-left: 40px;
+        border-left: solid thin $border-color;
+        padding: 20px 0 30px 40px;
+        border-bottom: solid thin $border-color;
+    }
+    .arrange_box {
+        margin-bottom: 30px;
+    }
+    .arrange_header {
+        position: relative;
+        i{
+            width: 34px;
+            height: 34px;
+            display: inline-block; 
+            position: absolute;
+            left: -57px;
+            border-radius: 50%;
+            border: solid thin #fb9103;  
+        }
+        h4 {
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// 行程搜索页面、我的行程页面、我的收藏页面行程布局
+%trips-box {
+    li {
+        float: left;
+        border: solid thin $border-color;
+        padding-bottom: 10px;
+        margin: 0 10px 30px 10px;
+    }
+    img {
+        width: 290px;
+        height: 160px;
+    }
+    a {
+        display: block;
+    }
+}
+
+// 行程搜索页面、我的行程页面、我的收藏页面文字布局
+%trips-text {
+    a {
+        padding: 10px;   
+        font-size: 18px;
+        color: #666;
+        &:hover {
+            color: $login-register-color;
+            text-decoration: underline;
+        }
+    }
+    p {
+        padding: 2px 10px;
+    }
+}
+
+// 个人资料管理页面、修改密码页面
+%update-box {
+    li {
+        padding-bottom: 20px;
+    }
+    label {
+        width: 70px;
+        display: inline-block;
+        text-align: right;
+    }
+    input {
+        width: 250px;
+        height: 15px;
+        padding: 5px;
+    }
+    button {
+        width: 100%;
+        height: 38px;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        background-color: $login-register-color;
+        border: solid thin $login-register-color;
+        margin-top: 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: #9a9a9a;
+            border: solid thin #9a9a9a;
+        }
+    }
+}
+
+// 我的足迹、修改头像弹框
+@mixin bomb-box($width, $height, $button-width) {
+    width: $width;
+    height: $height;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -$width/2;
+    margin-top: -$height/2;
+    z-index: 10;
+    border-radius: 10px;
+    .bomb_header {
+        height: 50px;
+        background-color: $login-register-color;
+        text-align: center;
+        line-height: 50px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        position: relative;
+        h4 {
+            color: white;
+            font-size: 20px;
+        }
+        span {
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            top: 14px;
+            right: 10px;
+            color: #d0d3d4;
+            font-size: 18px;
+            display: inline-block;
+            line-height: 16px;
+            text-align: center;
+            border-radius: 50%;
+            border: solid thin #d0d3d4;
+            padding: 2px;
+            cursor: pointer;
+            &:hover {
+                color: white;
+                border: solid thin white;
+            }
+        }
+    }
+    button {
+        width: $button-width;
+        display: block;
+        margin: 0 auto;
+        background-color: $login-register-color;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        border: solid thin $login-register-color;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        &:hover {
+            background-color: #9a9a9a;
+            border: solid thin #9a9a9a;
+        }
+    }
+}
+
