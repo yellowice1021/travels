@@ -15,9 +15,11 @@
 	</style>
 </head>
 <body>
-	<div class="home_container" ng-app="travelsApp" ng-controller="homeController">
+	<div class="home_container" ng-app="travelsApp">
 		<!--导航栏信息-->
-		<jsp:include page="../common/header.jsp"></jsp:include>
+		<div ng-controller="headerController" ng-init="initHeaderFlag=0;headerFlag=0">
+			<jsp:include page="../common/header.jsp"></jsp:include>
+		</div>
 		
 		<!--轮播图-->
 		<div class="home_banner_container">

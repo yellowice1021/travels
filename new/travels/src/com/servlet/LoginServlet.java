@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.model.Users;
 import com.service.UserService;
 
 /**
@@ -46,6 +47,7 @@ public class LoginServlet extends HttpServlet {
 		
 		String status = "";
 		UserService userService = new UserService();
+		Users users = new Users();
 		try {
 			status = userService.checkLogin(username, passwords, verifyCode, picCode);
 		} catch (NoSuchAlgorithmException e) {
@@ -54,7 +56,11 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 		// 记录用户信息到session中
-		request.getSession().setAttribute("username", username);
+		if(status == "success") {
+			users = userService.getMessage(username);
+			request.getSession().setAttribute("username", username);
+			request.getSession().setAttribute("userId", users.getUserId());
+		}
 		
 		response.setCharacterEncoding("utf-8");
 		response.getWriter().write(status);

@@ -16,14 +16,15 @@ app.config(function($httpProvider){
 /*
  * 主页事件
  */
-app.controller("homeController", function($scope) {
+app.controller("headerController", function($scope) {
 	
-	$scope.headerFlag = 0;
+	$scope.initHeaderFlag;
+	$scope.headerFlag;
 	$scope.headerMouseover = function(index) {
 		$scope.headerFlag = index;
 	}
 	$scope.headerMouseleave = function() {
-		$scope.headerFlag = 0;
+		$scope.headerFlag = $scope.initHeaderFlag;
 	}
 	
 });

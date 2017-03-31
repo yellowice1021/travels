@@ -12,7 +12,7 @@
 	<script src="<%=request.getContextPath() %>/js/lib/angular.min.js"></script>
 	<style>
 		.active_third {
-			background: url("../../img/header.png") no-repeat 0 -155px;
+			background: url("<%=request.getContextPath() %>/img/header.png") no-repeat 0 -155px;
 		}
 	</style>
 </head>
@@ -20,7 +20,9 @@
 	<div class="comment_mask" ng-if="messageUser.maskShow" ng-cloak></div>
 	<div class="message_container">
 		<!--导航栏信息-->
-		<jsp:include page="../common/header.jsp"></jsp:include>
+		<div ng-controller="headerController" ng-init="initHeaderFlag=2;headerFlag=2">
+			<jsp:include page="../common/header.jsp"></jsp:include>
+		</div>
 		
 		<!--个人资料管理-->
 		<div class="comment_container">

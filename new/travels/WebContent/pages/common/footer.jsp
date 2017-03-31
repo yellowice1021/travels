@@ -4,14 +4,14 @@
 	<div class="common_footer_box">
 		<ul class="clearfix">
 			<li class="float_left">
-				<i style="background:url('../../img/icons.png') no-repeat -400px -80px"></i>
+				<i style="background:url('<%=request.getContextPath() %>/img/icons.png') no-repeat -400px -80px"></i>
 				<p class="float_left">
 					<span>路线齐全的行程规划</span>
 					<span>随时随地解决出行烦恼</span>
 				</p>
 			</li>
 			<li class="float_left">
-				<i style="background:url('../../img/icons.png') no-repeat -400px -125px"></i>
+				<i style="background:url('<%=request.getContextPath() %>/img/icons.png') no-repeat -400px -125px"></i>
 				<p class="float_left">
 					<span>服务便利快捷</span>
 					<span>24小时提供在线服务</span>

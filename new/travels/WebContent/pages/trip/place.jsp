@@ -7,11 +7,19 @@
 	<title>发布行程</title>
 	<link rel="stylesheet" href="../../css/common/common.css" type="text/css"  />
 	<link rel="stylesheet" href="../../css/trip/trip.css" type="text/css"  />
+	<script src="<%=request.getContextPath() %>/js/lib/angular.min.js"></script>
+	<style>
+		.active_second {
+			background: url("../../img/header.png") no-repeat 0 -155px;
+		}
+	</style>
 </head>
 <body>
-	<div class="place_container">
+	<div class="place_container" ng-app="travelsApp" ng-controller="tripCityController">
 		<!--导航栏信息-->
-		<jsp:include page="../common/header.jsp"></jsp:include>
+		<div ng-controller="headerController" ng-init="initHeaderFlag=1;headerFlag=1">
+			<jsp:include page="../common/header.jsp"></jsp:include>
+		</div>
 		
 		<!--发布地点主要内容-->
 		<div class="release_place_container">
@@ -21,40 +29,52 @@
 					<p><span>无论是爱情还是青春，其实都在旅行的路上</span></p>
 				</div>
 				<div class="release_place_main">
-					<form>
+					<form action="../../ReleasePlaceServlet" method="post">
 						<div class="place_input_box">
 							<div class="place_input clearfix">
 								<span>出发地：</span>
-								<select>
-									<option>广东</option>
-									<option>福建</option>
-									<option>湖南</option>
-									<option>湖北</option>
+								<select name="outProvince">
+									<option value="北京">北京</option>
+									<option value="广东">广东</option>
+									<option value="福建">福建</option>
+									<option value="湖南">湖南</option>
+									<option value="湖北">湖北</option>
+									<option value="云南">云南</option>
+									<option value="江苏">江苏</option>
 								</select>
-								<select>
-									<option>广州</option>
-									<option>深圳</option>
-									<option>珠海</option>
-									<option>清远</option>
+								<select name="outCity">
+									<option value="北京">北京</option>
+									<option value="广州">广州</option>
+									<option value="深圳">深圳</option>
+									<option value="珠海">珠海</option>
+									<option value="清远">清远</option>
+									<option value="昆明">昆明</option>
+									<option value="南京">南京</option>
 								</select>
 							</div>
 							<div class="place_input clearfix">
 								<span>目的地：</span>
-								<select>
-									<option>广东</option>
-									<option>福建</option>
-									<option>湖南</option>
-									<option>湖北</option>
+								<select name="inProvince">
+									<option value="北京">北京</option>
+									<option value="广东">广东</option>
+									<option value="福建">福建</option>
+									<option value="湖南">湖南</option>
+									<option value="湖北">湖北</option>
+									<option value="云南">云南</option>
+									<option value="江苏">江苏</option>
 								</select>
-								<select>
-									<option>广州</option>
-									<option>深圳</option>
-									<option>珠海</option>
-									<option>清远</option>
+								<select name="inCity">
+									<option value="北京">北京</option>
+									<option value="广州">广州</option>
+									<option value="深圳">深圳</option>
+									<option value="珠海">珠海</option>
+									<option value="清远">清远</option>
+									<option value="昆明">昆明</option>
+									<option value="南京">南京</option>
 								</select>
 							</div>
 						</div>
-						<button>下一步</button>
+						<button ng-click="cityChoose.cityClick()">下一步</button>
 					</form>
 				</div>
 			</div>
@@ -64,4 +84,7 @@
 		<jsp:include page="../common/footer.jsp"></jsp:include>
 	</div>
 </body>
+<script src="<%=request.getContextPath() %>/js/common/common.js"></script>
+<script src="<%=request.getContextPath() %>/js/controller/trip.js"></script>
+</script>
 </html>

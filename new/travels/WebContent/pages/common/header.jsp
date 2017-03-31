@@ -9,28 +9,40 @@
 				<span class="cor" ng-if="headerFlag==0" ng-cloak></span>
 				<ul class="header_another_navigation clearfix" ng-if="headerFlag==0" ng-cloak>
 					<li>
-						<a href="#">全部</a>
+						<a href="#">
+							<span>全部</span>
+						</a>
 					</li>
 					<li>
-						<a href="#">北京</a>
+						<a href="#">
+							<span>北京</span>
+						</a>
 					</li>
 					<li>
-						<a href="#">上海</a>
+						<a href="#">
+							<span>上海</span>
+						</a>
 					</li>
 					<li>
-						<a href="#">云南</a>
+						<a href="#">
+							<span>云南</span>
+						</a>
 					</li>
 					<li>
-						<a href="#">桂林</a>
+						<a href="#">
+							<span>桂林</span>
+						</a>
 					</li>
 				</ul>
 			</li>
 			<li class="active_second" ng-mouseover="headerMouseover(1)" ng-mouseleave="headerMouseleave()">
 				<span>发布行程</span>
 				<span class="cor" ng-if="headerFlag==1" ng-cloak></span>
-				<ul class="header_another_navigation clearfix" style="left:-120px;" ng-if="headerFlag==1" ng-cloak>
-					<li>
-						<a href="#">全部</a>
+				<ul class="header_another_navigation clearfix" style="left:-15px;" ng-if="headerFlag==1" ng-cloak>
+					<li style="width: 120px;">
+						<a href="<%=request.getContextPath() %>/pages/trip/place.jsp">
+							<span>发布行程规划</span>
+						</a>
 					</li>
 				</ul>
 			</li>
@@ -39,16 +51,24 @@
 				<span class="cor" ng-if="headerFlag==2" ng-cloak></span>
 				<ul class="header_another_navigation navigation_third clearfix" style="left:-250px;" ng-if="headerFlag==2" ng-cloak>
 					<li>
-						<a href="<%=request.getContextPath() %>/GetUserMessageServlet">修改资料</a>
+						<a href="<%=request.getContextPath() %>/GetUserMessageServlet">
+							<span>修改资料</span>
+						</a>
 					</li>
 					<li>
-						<a href="#">我的行程</a>
+						<a href="#">
+							<span>我的行程</span>
+						</a>
 					</li>
 					<li>
-						<a href="#">我的收藏</a>
+						<a href="#">
+							<span>我的收藏</span>
+						</a>
 					</li>
 					<li>
-						<a href="#">我的足迹</a>
+						<a href="#">
+							<span>我的足迹</span>
+						</a>
 					</li>
 				</ul>
 			</li>

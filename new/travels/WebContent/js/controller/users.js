@@ -219,13 +219,5 @@ app.controller("messageController", function($scope, $http) {
 	$scope.updateClass = updateClass;
 	$scope.passUser = passUser;
 	$scope.messageUser = messageUser;
-	// 导航栏鼠标移入移除事件
-	$scope.headerFlag = 2;
-	$scope.headerMouseover = function(index) {
-		$scope.headerFlag = index;
-	}
-	$scope.headerMouseleave = function() {
-		$scope.headerFlag = 2;
-	}
 	
 });
