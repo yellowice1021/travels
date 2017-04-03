@@ -72,37 +72,7 @@
     padding-top: 30px;
 }
 .detail_person_box {
-    padding-bottom: 40px;
-    border-bottom: solid thin $border-color;
-    img {
-        float: left;
-        width: 250px;
-        height: 220px;
-    }
-}
-.detail_person_intoduce {
-    width: 650px;
-    float: left;
-    margin-left: 20px;
-}
-.detail_person {
-    h4 {
-        font-size: 24px;
-        float: left;
-    }
-    span {
-        float: right
-    }
-}
-.detail_text {
-    margin-top: 18px;
-    p {
-        margin-bottom: 10px;
-        line-height: 25px;
-    }
-}
-.detail_title {
-    font-weight: bold;
+    @extend %trip_message_box;
 }
 .detail_trip_box {
     margin-top: 10px;
@@ -125,9 +95,6 @@
 }
 .detail_comment_box {
     margin-top: 20px;
-}
-.comment_box {
-    @extend %container-box;
 }
 .comment_header {
     @extend %detail-title;

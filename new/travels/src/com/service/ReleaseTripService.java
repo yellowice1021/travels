@@ -1,7 +1,12 @@
 package com.service;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -12,8 +17,13 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.naming.java.javaURLContextFactory;
+import org.eclipse.jdt.internal.compiler.env.IGenericField;
 
+import com.dao.ReleaseTripDao;
+import com.model.TripDetail;
 import com.model.TripMessage;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import com.tools.GetLatitude;
 
 /*
@@ -42,11 +52,18 @@ public class ReleaseTripService {
 	}
 	
 	// 填写行程信息
-	public String setTripMessage(HttpServletRequest request, String filename, String path, TripMessage tripMessage) {
+	public void setTripMessage(HttpServletRequest request, String path, TripMessage tripMessage) {
 		
 		int userId = (int) request.getSession().getAttribute("userId");
 		String filePath = "";
+		String filename = new Date().getTime() + "";
 		tripMessage.setUsers(userId);
+		
+		// 获取当前日期时间
+		Date date = new Date();
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String time = format.format(date);
+		tripMessage.setDate(time);
 		
 		//判断上传表单是否为multipart/form-data类型
         if(ServletFileUpload.isMultipartContent(request))
@@ -73,7 +90,17 @@ public class ReleaseTripService {
                     {
                         String name = fileItem.getFieldName();//name属性值
                         String value = fileItem.getString("utf-8");//name对应的value值      
-                        System.out.println(name + " = "+value);
+                        if(name.equals("title")) {
+                        	tripMessage.setTitle(value);
+                        }else if(name.equals("outCity")) {
+                        	tripMessage.setOutCity(value);
+                        }else if(name.equals("inCity")) {
+                        	tripMessage.setInCity(value);
+                        }else if(name.equals("days")) {
+                        	tripMessage.setDays(value);
+                        }else if(name.equals("introduce")) {
+                        	tripMessage.setIntroduce(value);
+                        }
                     }
                     // <input type="file">的上传文件的元素
                     else
@@ -95,7 +122,8 @@ public class ReleaseTripService {
                         
                         // 调用FileItem的delete()方法，删除临时文件
                         fileItem.delete();
-                        filePath = path + "/" + filename;
+                        filePath = path + "/" + newFileName;
+                        tripMessage.setPicture(filePath);
                     }
                 }
                 
@@ -105,7 +133,55 @@ public class ReleaseTripService {
                 e.printStackTrace();
             }
         }
-        return filePath;
+        
+	}
+	
+	// 发布行程标题信息
+	public String addTripMessage(TripMessage tripMessage) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+		
+		String status = "success";
+		ReleaseTripDao releaseTripDao = new ReleaseTripDao();
+		
+		if(releaseTripDao.addTripMessage(tripMessage) != 1) {
+			status = "error";
+		}
+		
+		return status;
+		
+	}
+	
+	// 填写行程具体信息
+	public String addTripDetail(HttpServletRequest request) {
+		
+		String status = "success";
+		int id = Integer.parseInt(request.getParameter("id"));
+		int day = Integer.parseInt(request.getParameter("days"));
+		List<TripDetail> tripDetails = new ArrayList<TripDetail>();
+		ReleaseTripDao releaseTripDao = new ReleaseTripDao();
+		int row = 0;
+		
+		for(int i = 1; i <= day; i++) {
+			String trip = "trip" + i;
+			String food = "food" + i;
+			String live = "live" + i;
+			TripDetail tripDetail = new TripDetail();
+			tripDetail.setDay(i);
+			tripDetail.setTrip(request.getParameter(trip));
+			tripDetail.setFood(request.getParameter(food));
+			tripDetail.setLive(request.getParameter(live));
+			tripDetails.add(tripDetail);
+		}
+		
+		for(TripDetail trip: tripDetails) {
+			row = releaseTripDao.addTripDetail(id, trip);
+			if(row != 1) {
+				status = "error";
+				return status;
+			}
+		}
+		
+		return status;
+		
 	}
 	
 }

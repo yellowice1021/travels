@@ -250,4 +250,23 @@ ul li {
     vertical-align: top;
     margin-right: 5px; }
 
+.result_box {
+  width: 1000px;
+  height: 460px;
+  background: url("../../img/result_bg.jpg") no-repeat;
+  background-size: 1000px 460px; }
+
+.result_title_box {
+  width: 200px;
+  margin: 0 auto;
+  padding-top: 150px; }
+  .result_title_box i {
+    width: 50px;
+    height: 40px;
+    float: left; }
+  .result_title_box h4 {
+    font-size: 20px;
+    float: left;
+    padding: 5px 0 0 5px; }
+
 /*# sourceMappingURL=common.css.map */

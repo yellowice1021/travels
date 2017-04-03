@@ -166,7 +166,10 @@
 }
 // 行程计划安排界面
 .trip_plan_box {
-    padding-bottom: 80px;
+    padding: 30px 0 80px 0;
+}
+.trip_message_box {
+    @extend %trip_message_box;
 }
 .plan_box {
     padding-top: 20px;
@@ -174,9 +177,10 @@
 }
 .arrange_input {
     textarea {
-        width: 100%;
+        width: 98%;
         height: 100px;
         resize: none;
+        padding: 5px;
     }
 }
 .plan_button_box {

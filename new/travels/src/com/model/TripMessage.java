@@ -13,6 +13,7 @@ public class TripMessage {
 	private String picture;
 	private String date;
 	private int users;
+	private int id;
 	
 	public String getTitle() {
 		return title;
@@ -62,5 +63,10 @@ public class TripMessage {
 	public void setUsers(int users) {
 		this.users = users;
 	}
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 }

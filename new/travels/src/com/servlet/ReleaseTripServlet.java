@@ -1,7 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,22 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import sun.management.counter.Variability;
+
 import com.dao.ReleaseTripDao;
-import com.model.TripMessage;
+import com.model.TripDetail;
 import com.service.ReleaseTripService;
-import com.tools.Upload;
 
 /**
- * Servlet implementation class ReleaseTypeServlet
+ * Servlet implementation class ReleaseTripServlet
  */
-@WebServlet("/ReleaseTypeServlet")
-public class ReleaseTypeServlet extends HttpServlet {
+@WebServlet("/ReleaseTripServlet")
+public class ReleaseTripServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReleaseTypeServlet() {
+    public ReleaseTripServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,21 +44,17 @@ public class ReleaseTypeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String status = "";
-		TripMessage tripMessage = new TripMessage();
+		request.setCharacterEncoding("utf-8");
+		
 		ReleaseTripService releaseTripService = new ReleaseTripService();
+		String status = "";
 		
-		releaseTripService.setTripMessage(request, "images/trip/title", tripMessage);
-		try {
-			status = releaseTripService.addTripMessage(tripMessage);
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		status = releaseTripService.addTripDetail(request);
+		if(status == "success") {
+			response.sendRedirect("pages/common/success.jsp");
+		} else if(status == "error") {
+			response.sendRedirect("pages/common/fail.jsp");
 		}
-		System.out.print(status);
-		
-		request.setAttribute("tripMessage", tripMessage);
-		request.getRequestDispatcher("pages/trip/trip.jsp").forward(request, response);
 		
 	}
 

@@ -293,3 +293,25 @@ ul li {
         margin-right: 5px;
     }
 }
+// 成功界面
+.result_box {
+    width: 1000px;
+    height: 460px;
+    background: url("../../img/result_bg.jpg") no-repeat;
+    background-size: 1000px 460px;
+}
+.result_title_box {
+    width: 200px;
+    margin: 0 auto;
+    padding-top: 150px;
+    i {
+        width: 50px;
+        height: 40px;
+        float: left;
+    }
+    h4 {
+        font-size: 20px;
+        float: left;
+        padding: 5px 0 0 5px;
+    }
+}

@@ -318,3 +318,42 @@ $border-color: #d3d3d3;             // 边框颜色
     }
 }
 
+// 发布行程，查看行程介绍页面
+%trip_message_box {
+    padding-bottom: 40px;
+    border-bottom: solid thin $border-color;
+    img {
+        float: left;
+        width: 250px;
+        height: 220px;
+    }
+    .detail_intoduce {
+        width: 650px;
+        float: left;
+        margin-left: 20px;
+    }
+    .detail_person {
+        h4 {
+            font-size: 24px;
+            float: left;
+        }
+        span {
+            float: right
+        }
+    }
+    .detail_text {
+        margin-top: 18px;
+        p {
+            margin-bottom: 10px;
+            line-height: 25px;
+        }
+    }
+    .detail_title {
+        font-weight: bold;
+    }
+    .detail_title_box {
+        display: inline-block;
+        margin-right: 40px;
+    }
+}
+
