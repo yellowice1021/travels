@@ -97,7 +97,7 @@ public class ReleaseTripService {
                         }else if(name.equals("inCity")) {
                         	tripMessage.setInCity(value);
                         }else if(name.equals("days")) {
-                        	tripMessage.setDays(value);
+                        	tripMessage.setDays(Integer.parseInt(value));
                         }else if(name.equals("introduce")) {
                         	tripMessage.setIntroduce(value);
                         }

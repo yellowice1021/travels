@@ -29,7 +29,7 @@ public class ReleaseTripDao {
 			ps.setString(1, tripMessage.getTitle());
 			ps.setString(2, tripMessage.getOutCity());
 			ps.setString(3, tripMessage.getInCity());
-			ps.setString(4, tripMessage.getDays());
+			ps.setInt(4, tripMessage.getDays());
 			ps.setString(5, tripMessage.getIntroduce());
 			ps.setString(6, tripMessage.getDate());
 			ps.setString(7, tripMessage.getPicture());

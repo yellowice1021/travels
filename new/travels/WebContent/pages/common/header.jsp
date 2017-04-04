@@ -9,27 +9,27 @@
 				<span class="cor" ng-if="headerFlag==0" ng-cloak></span>
 				<ul class="header_another_navigation clearfix" ng-if="headerFlag==0" ng-cloak>
 					<li>
-						<a href="#">
+						<a href="<%=request.getContextPath() %>/SearchTripServlet?place=全部&day=0">
 							<span>全部</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="<%=request.getContextPath() %>/SearchTripServlet?place=北京&day=0">
 							<span>北京</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="<%=request.getContextPath() %>/SearchTripServlet?place=上海&day=0">
 							<span>上海</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="<%=request.getContextPath() %>/SearchTripServlet?place=云南&day=0">
 							<span>云南</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="<%=request.getContextPath() %>/SearchTripServlet?place=桂林&day=0">
 							<span>桂林</span>
 						</a>
 					</li>

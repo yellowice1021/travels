@@ -42,7 +42,7 @@
 							<label>出游天数：</label>
 							<span class="clearfix">
 								<a href="#">—</a>
-								<input type="text" value="3" name="days"/>
+								<input type="text" value="1" name="days"/>
 								<a href="#">+</a>
 							</span>
 						</li>

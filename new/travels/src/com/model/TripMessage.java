@@ -8,7 +8,7 @@ public class TripMessage {
 	private String title;
 	private String outCity;
 	private String inCity;
-	private String days;
+	private int days;
 	private String introduce;
 	private String picture;
 	private String date;
@@ -33,10 +33,10 @@ public class TripMessage {
 	public void setInCity(String inCity) {
 		this.inCity = inCity;
 	}
-	public String getDays() {
+	public int getDays() {
 		return days;
 	}
-	public void setDays(String days) {
+	public void setDays(int days) {
 		this.days = days;
 	}
 	public String getIntroduce() {
