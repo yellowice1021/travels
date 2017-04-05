@@ -19,7 +19,7 @@
 <body>
 	<div class="trip_container" ng-app="travelsApp">
 		<!--导航栏信息-->
-		<div ng-controller="headerController" ng-init="initHeaderFlag=1;headerFlag=1">
+		<div ng-controller="headerController" ng-init="initHeaderFlag=2;headerFlag=2">
 			<jsp:include page="../common/header.jsp"></jsp:include>
 		</div>
 		

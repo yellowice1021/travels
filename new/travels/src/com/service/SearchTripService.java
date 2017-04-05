@@ -1,10 +1,16 @@
 package com.service;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.dao.SearchTripDao;
+import com.model.TripComment;
+import com.model.TripDetail;
 import com.model.TripMessage;
+import com.sun.org.apache.xerces.internal.util.Status;
 
 /*
  * 查看行程
@@ -29,6 +35,36 @@ public class SearchTripService {
 		
 		// 查看城市信息
 		searchTripDao.searchTripCity(citys);
+		
+	}
+	
+	// 查看行程详细信息
+	public void searchTripDetail(int id, TripMessage message, List<TripDetail> tripDetails, List<TripComment> tripComments) {
+		
+		SearchTripDao searchTripDao = new SearchTripDao();
+		
+		searchTripDao.searchIdTripMessage(id, message);
+		searchTripDao.searDetailTripMessage(id, tripDetails);
+		searchTripDao.searchTripComment(id, tripComments);
+		
+	}
+	
+	// 发布行程评论
+	public String searchReleaseComment(int id, int userid, String comment) {
+		
+		String status = "success";
+		SearchTripDao searchTripDao = new SearchTripDao();
+		
+		Date date = new Date();
+		DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String time = format.format(date);
+		
+		if(searchTripDao.searchReleaseComment(id, userid, comment, time) != 1) {
+			status = "error";
+			return status;
+		}
+		
+		return status;
 		
 	}
 	

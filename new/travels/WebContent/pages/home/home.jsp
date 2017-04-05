@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="../../css/home/home.css" type="text/css"  />
 	<script src="<%=request.getContextPath() %>/js/lib/angular.min.js"></script>
 	<style>
-		.active_first {
+		.active_zero {
 			background: url("../../img/header.png") no-repeat 0 -155px;
 		}
 	</style>

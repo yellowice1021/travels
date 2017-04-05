@@ -5,7 +5,7 @@ app.controller("registerController", function($scope, $http) {
 	
 	// 验证码
 	var verifyImage = {
-		imageUrl: "../../ImageServlet",
+		imageUrl: "ImageServlet",
 		imageClick: function() {
 			var time = new Date().getTime();
 			this.imageUrl += "?d" + time;

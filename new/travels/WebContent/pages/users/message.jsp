@@ -20,7 +20,7 @@
 	<div class="comment_mask" ng-if="messageUser.maskShow" ng-cloak></div>
 	<div class="message_container">
 		<!--导航栏信息-->
-		<div ng-controller="headerController" ng-init="initHeaderFlag=2;headerFlag=2">
+		<div ng-controller="headerController" ng-init="initHeaderFlag=3;headerFlag=3">
 			<jsp:include page="../common/header.jsp"></jsp:include>
 		</div>
 		

@@ -11,20 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.SearchTripDao;
+import com.model.TripComment;
+import com.model.TripDetail;
 import com.model.TripMessage;
 import com.service.SearchTripService;
 
 /**
- * Servlet implementation class SearchTripServlet
+ * Servlet implementation class SearchDetailServlet
  */
-@WebServlet("/SearchTripServlet")
-public class SearchTripServlet extends HttpServlet {
+@WebServlet("/SearchDetailServlet")
+public class SearchDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchTripServlet() {
+    public SearchDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,23 +45,26 @@ public class SearchTripServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String place = request.getParameter("place");
-		int day = Integer.parseInt(request.getParameter("day"));
+		int id = Integer.parseInt(request.getParameter("id"));
+		String status = request.getParameter("status");
 
-		byte[] bytes = place.getBytes("ISO-8859-1");	 
-		place = new String(bytes,"utf-8");
-		
-		List<TripMessage> tripMessages = new ArrayList<TripMessage>();
-		List<String> citys = new ArrayList<String>();
 		SearchTripService searchTripService = new SearchTripService();
+		TripMessage message = new TripMessage();
+		List<TripDetail> tripDetails = new ArrayList<TripDetail>();
+		List<TripComment> tripComments = new ArrayList<TripComment>();
 		
-		searchTripService.searchTripMessage(place, day, tripMessages, citys);
+		searchTripService.searchTripDetail(id, message, tripDetails, tripComments);
 		
-		request.setAttribute("tripMessage", tripMessages);
-		request.setAttribute("citys", citys);
-		request.setAttribute("place", place);
-		request.setAttribute("day", day);
-		request.getRequestDispatcher("pages/search/search.jsp").forward(request, response);
+		if(status == null) {
+			request.setAttribute("status", "search");
+		} else {
+			request.setAttribute("status", status);
+		}
+		
+		request.setAttribute("message", message);
+		request.setAttribute("tripDetails", tripDetails);
+		request.setAttribute("tripComments", tripComments);
+		request.getRequestDispatcher("pages/search/detail.jsp").forward(request, response);
 		
 	}
 

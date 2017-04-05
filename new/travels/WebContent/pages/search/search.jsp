@@ -19,7 +19,7 @@
 <body>
 	<div class="searchtrip_container" ng-app="travelsApp">
 		<!--导航栏信息-->
-		<div ng-controller="headerController" ng-init="initHeaderFlag=0;headerFlag=0">
+		<div ng-controller="headerController" ng-init="initHeaderFlag=1;headerFlag=1">
 			<jsp:include page="../common/header.jsp"></jsp:include>
 		</div>
 		
@@ -124,11 +124,11 @@
 					<ul class="clearfix">
 						<c:forEach var="message" items="${tripMessage}">
 							<li>
-								<a href="#">
+								<a href="<%=request.getContextPath() %>/SearchDetailServlet?id=${message.id}">
 									<img src="<%=request.getContextPath() %>/${message.picture}" />
 								</a>
 								<div class="search_text">
-									<h4><a href="#">${message.title}</a></h4>
+									<h4><a href="<%=request.getContextPath() %>/SearchDetailServlet?id=${message.id}">${message.title}</a></h4>
 									<p>目的地：${message.inCity}</p>
 									<p>行程天数：${message.days}天</p>
 								</div>

@@ -3,11 +3,22 @@
 	<div class="header_box clearfix">
 		<div class="header_logo float_left"></div>
 		<ul class="header_navigation float_left">
-			<li class="active_first" ng-mouseover="headerMouseover(0)" ng-mouseleave="headerMouseleave()">
+			<li class="active_zero" ng-mouseover="headerMouseover(0)" ng-mouseleave="headerMouseleave()">
+				<span>主页</span>
+				<span class="cor" ng-if="headerFlag==0" ng-cloak></span>
+				<ul class="header_another_navigation clearfix" ng-if="headerFlag==0" ng-cloak style="left:20px">
+					<li>
+						<a href="#">
+							<span>主页</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li class="active_first" ng-mouseover="headerMouseover(1)" ng-mouseleave="headerMouseleave()">
 				<span>行程规划</span>
 				<span class="hot"></span>
-				<span class="cor" ng-if="headerFlag==0" ng-cloak></span>
-				<ul class="header_another_navigation clearfix" ng-if="headerFlag==0" ng-cloak>
+				<span class="cor" ng-if="headerFlag==1" ng-cloak></span>
+				<ul class="header_another_navigation clearfix" ng-if="headerFlag==1" ng-cloak style="left:-110px">
 					<li>
 						<a href="<%=request.getContextPath() %>/SearchTripServlet?place=全部&day=0">
 							<span>全部</span>
@@ -35,10 +46,10 @@
 					</li>
 				</ul>
 			</li>
-			<li class="active_second" ng-mouseover="headerMouseover(1)" ng-mouseleave="headerMouseleave()">
+			<li class="active_second" ng-mouseover="headerMouseover(2)" ng-mouseleave="headerMouseleave()">
 				<span>发布行程</span>
-				<span class="cor" ng-if="headerFlag==1" ng-cloak></span>
-				<ul class="header_another_navigation clearfix" style="left:-15px;" ng-if="headerFlag==1" ng-cloak>
+				<span class="cor" ng-if="headerFlag==2" ng-cloak></span>
+				<ul class="header_another_navigation clearfix" style="left:-15px;" ng-if="headerFlag==2" ng-cloak>
 					<li style="width: 120px;">
 						<a href="<%=request.getContextPath() %>/pages/trip/place.jsp">
 							<span>发布行程规划</span>
@@ -46,10 +57,10 @@
 					</li>
 				</ul>
 			</li>
-			<li class="active_third" ng-mouseover="headerMouseover(2)" ng-mouseleave="headerMouseleave()">
+			<li class="active_third" ng-mouseover="headerMouseover(3)" ng-mouseleave="headerMouseleave()">
 				<span>个人中心</span>
-				<span class="cor" ng-if="headerFlag==2" ng-cloak></span>
-				<ul class="header_another_navigation navigation_third clearfix" style="left:-250px;" ng-if="headerFlag==2" ng-cloak>
+				<span class="cor" ng-if="headerFlag==3" ng-cloak></span>
+				<ul class="header_another_navigation navigation_third clearfix" style="left:-310px;" ng-if="headerFlag==3" ng-cloak>
 					<li>
 						<a href="<%=request.getContextPath() %>/GetUserMessageServlet">
 							<span>修改资料</span>

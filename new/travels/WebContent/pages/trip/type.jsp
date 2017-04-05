@@ -15,7 +15,7 @@
 <body onload="showMapLine(${latitudes[0]}, ${latitudes[1]}, ${latitudes[2]}, ${latitudes[3]})">
 	<div class="type_container" ng-app="travelsApp">
 		<!--导航栏信息-->
-		<div ng-controller="headerController" ng-init="initHeaderFlag=1;headerFlag=1">
+		<div ng-controller="headerController" ng-init="initHeaderFlag=2;headerFlag=2">
 			<jsp:include page="../common/header.jsp"></jsp:include>
 		</div>
 		
