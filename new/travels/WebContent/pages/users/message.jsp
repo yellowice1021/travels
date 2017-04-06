@@ -98,7 +98,7 @@
 					<form class="clearfix">
 						<div class="password_data_box">
 							<ul>
-								<li ng-init="passUser.username='${username }'">
+								<li ng-init="passUser.username='${users.userName}'">
 									<label>用户名：</label>
 									<input type="text" required ng-model="passUser.username" readonly="readonly"/>
 								</li>

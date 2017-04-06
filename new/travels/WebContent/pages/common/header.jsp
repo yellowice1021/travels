@@ -60,7 +60,12 @@
 			<li class="active_third" ng-mouseover="headerMouseover(3)" ng-mouseleave="headerMouseleave()">
 				<span>个人中心</span>
 				<span class="cor" ng-if="headerFlag==3" ng-cloak></span>
-				<ul class="header_another_navigation navigation_third clearfix" style="left:-310px;" ng-if="headerFlag==3" ng-cloak>
+				<ul class="header_another_navigation navigation_third clearfix" style="left:-370px;" ng-if="headerFlag==3" ng-cloak>
+					<li>
+						<a href="<%=request.getContextPath() %>/SearchPersonalServelt">
+							<span>个人中心</span>
+						</a>
+					</li>
 					<li>
 						<a href="<%=request.getContextPath() %>/GetUserMessageServlet">
 							<span>修改资料</span>

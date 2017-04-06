@@ -67,4 +67,46 @@ public class UserService {
 		
 	}
 	
+	// 收藏行程
+	public String saveTrip(int loginId, int userId, int planId) {
+		
+		String status = "success";
+		UserDao userDao = new UserDao();
+		
+		if(loginId == userId) {
+			status = "sameUser";
+			return status;
+		} else if(userDao.saveTrip(planId, loginId) != 1) {
+			status = "saveError";
+			return status;
+		}
+		
+		return status;
+		
+	}
+	
+	// 取消收藏
+	public String deleteSave(int planId, int userId) {
+		
+		String status = "success";
+		UserDao userDao = new UserDao();
+		
+		if(userDao.deleteSave(planId, userId) != 1) {
+			status = "deleteError";
+			return status;
+		}
+		
+		return status;
+		
+	}
+	
+	// 根据id获取用户信息
+	public void getMessageById(int id, Users users) {
+		
+		UserDao userDao = new UserDao();
+		
+		userDao.getMessageById(id, users);
+		
+	}
+	
 }

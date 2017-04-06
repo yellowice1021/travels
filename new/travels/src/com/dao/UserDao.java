@@ -122,5 +122,81 @@ public class UserDao {
 		
 	}
 	
+	// 收藏行程
+	public int saveTrip(int planId, int userId) {
+		int row = 0;
+		Connection conn = DataBase.getConnection();
+		String sql = "insert into travels_save(planid,userid) values(?,?)";
+		try
+		{	
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, planId);
+			ps.setInt(2, userId);
+			row = ps.executeUpdate();
+			ps.close();
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return row;
+	}
+	
+	// 取消收藏
+	public int deleteSave(int planId, int userId) {
+		
+		int row = 0;
+		Connection conn = DataBase.getConnection();
+		String sql = "delete from travels_save where planid=? and userid=?";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, planId);
+			ps.setInt(2, userId);
+			row = ps.executeUpdate();
+			ps.close();
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return row;
+		
+	}
+	
+	// 根据id获取用户信息
+	public void getMessageById(int id, Users users) {
+		
+		Connection conn = DataBase.getConnection();
+		String sql = "select * from travels_users where id=?";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				users.setUserId(rs.getInt("id"));
+				users.setUserName(rs.getString("username"));
+				users.setUserPassword(rs.getString("password"));
+				users.setUserSex(rs.getString("sex"));
+				users.setUserProvince(rs.getString("province"));
+				users.setUserCity(rs.getString("city"));
+				users.setUserIntroduce(rs.getString("introduce"));
+				users.setUserFace(rs.getString("face"));
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 }

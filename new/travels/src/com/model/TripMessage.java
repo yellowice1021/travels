@@ -14,6 +14,9 @@ public class TripMessage {
 	private String date;
 	private int users;
 	private int id;
+	private String face;
+	private int save;
+	private String username;
 	
 	public String getTitle() {
 		return title;
@@ -68,5 +71,23 @@ public class TripMessage {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getFace() {
+		return face;
+	}
+	public void setFace(String face) {
+		this.face = face;
+	}
+	public int getSave() {
+		return save;
+	}
+	public void setSave(int save) {
+		this.save = save;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

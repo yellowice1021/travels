@@ -8,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.UserDao;
 import com.model.Users;
-import com.service.UserService;
 
 /**
- * Servlet implementation class GetUserMessageServlet
+ * Servlet implementation class SearchPersonalServelt
  */
-@WebServlet("/GetUserMessageServlet")
-public class GetUserMessageServlet extends HttpServlet {
+@WebServlet("/SearchPersonalServelt")
+public class SearchPersonalServelt extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public GetUserMessageServlet() {
+    public SearchPersonalServelt() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,12 +42,11 @@ public class GetUserMessageServlet extends HttpServlet {
 		
 		int userId = (int) request.getSession().getAttribute("userId");
 		Users users = new Users();
-		UserService userService = new UserService();
+		UserDao userDao = new UserDao();
 		
-		userService.getMessageById(userId, users);;
+		userDao.getMessageById(userId, users);
 		request.setAttribute("users", users);
-		request.getRequestDispatcher("pages/users/message.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("pages/users/personal.jsp").forward(request, response);
 		
 	}
 

@@ -39,13 +39,19 @@ public class SearchTripService {
 	}
 	
 	// 查看行程详细信息
-	public void searchTripDetail(int id, TripMessage message, List<TripDetail> tripDetails, List<TripComment> tripComments) {
+	public void searchTripDetail(int userid, int id, TripMessage message, List<TripDetail> tripDetails, List<TripComment> tripComments) {
 		
 		SearchTripDao searchTripDao = new SearchTripDao();
 		
 		searchTripDao.searchIdTripMessage(id, message);
+		if(searchTripDao.searchIfSaveTripMessage(userid, id) == 1) {
+			message.setSave(1);
+		} else {
+			message.setSave(0);
+		}
 		searchTripDao.searDetailTripMessage(id, tripDetails);
 		searchTripDao.searchTripComment(id, tripComments);
+
 		
 	}
 	

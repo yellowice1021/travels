@@ -47,13 +47,14 @@ public class SearchDetailServlet extends HttpServlet {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		String status = request.getParameter("status");
+		int userid = (int) request.getSession().getAttribute("userId");
 
 		SearchTripService searchTripService = new SearchTripService();
 		TripMessage message = new TripMessage();
 		List<TripDetail> tripDetails = new ArrayList<TripDetail>();
 		List<TripComment> tripComments = new ArrayList<TripComment>();
 		
-		searchTripService.searchTripDetail(id, message, tripDetails, tripComments);
+		searchTripService.searchTripDetail(userid, id, message, tripDetails, tripComments);
 		
 		if(status == null) {
 			request.setAttribute("status", "search");

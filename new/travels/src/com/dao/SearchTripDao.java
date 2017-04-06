@@ -172,7 +172,7 @@ public class SearchTripDao {
 	public void searchIdTripMessage(int id, TripMessage message) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan where id=?";
+		String sql = "select * from travels_plan,travels_users where travels_plan.id=? and userid=travels_users.id";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -189,6 +189,8 @@ public class SearchTripDao {
 				message.setDate(rs.getString("date"));
 				message.setUsers(rs.getInt("userid"));
 				message.setId(id);
+				message.setFace(rs.getString("face"));
+				message.setUsername(rs.getString("username"));
 			}
 			rs.close();
 			ps.close();
@@ -283,6 +285,34 @@ public class SearchTripDao {
 			e.printStackTrace();
 		}
 		return row;
+		
+	}
+	
+	// 查看是否收藏指定行程
+	public int searchIfSaveTripMessage(int userid, int id) {
+		
+		int count = 0;
+		Connection conn = DataBase.getConnection();
+		String sql = "select * from travels_save where planid=? and userid=?";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			ps.setInt(2, userid);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				count++;
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return count;
 		
 	}
 	

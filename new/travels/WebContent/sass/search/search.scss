@@ -94,6 +94,25 @@
     margin-top: 10px;
     @extend %detail-release-box;
 }
+.detail_person_txt {
+    img {
+        width: 30px;
+        height: 28px;
+        float: left;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    span {
+        float: left;
+    }
+}
+.detail_person_save {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    float: right;
+    margin: -4px 0 0 5px;
+}
 .arrange_introduce {
     line-height: 24px;
 }

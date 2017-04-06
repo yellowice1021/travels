@@ -3,26 +3,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="../../css/common/common.css" type="text/css"  />
-<link rel="stylesheet" href="../../css/users/users.css" type="text/css"  />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>个人中心</title>
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/css/common/common.css" type="text/css"  />
+	<link rel="stylesheet" href="<%=request.getContextPath() %>/css/users/users.css" type="text/css"  />
+	<script src="<%=request.getContextPath() %>/js/lib/angular.min.js"></script>
+	<style>
+		.active_third {
+			background: url("<%=request.getContextPath() %>/img/header.png") no-repeat 0 -155px;
+		}
+	</style>
 </head>
 <body>
-	<div class="personal_container">
+	<div class="personal_container" ng-app="travelsApp">
 		<!--导航栏信息-->
-		<jsp:include page="../common/header.jsp"></jsp:include>
+		<div ng-controller="headerController" ng-init="initHeaderFlag=3;headerFlag=3">
+			<jsp:include page="../common/header.jsp"></jsp:include>
+		</div>
 		
 		<!--个人信息管理-->
 		<div class="comment_container">
 			<div class="comment_box personal_box">
 				<div class="personal_header clearfix">
 					<div class="personal_img_box">
-						<img src="../../images/search/beijing.jpg"  />
+						<img src="<%=request.getContextPath() %>/${users.userFace}" />
 					</div>
 					<div class="personal_message">
 						<div class="personal_name clearfix">
-							<h4>姓名</h4>
+							<h4>${users.userName}</h4>
 							<a href="#">编辑个人资料</a>
 						</div>
 						<div class="personal_number clearfix">
@@ -42,11 +50,11 @@
 						<div class="personal_detail">
 							<p>
 								<span class="title_text">所在地区：</span>
-								<span>广东省-广州市</span>
+								<span>${users.userProvince}-${users.userCity}</span>
 							</p>
 							<p>
-								<span class="title_text">想去的地方：</span>
-								<span>云南省-昆明</span>
+								<span class="title_text">自我介绍：</span>
+								<span>${users.userIntroduce}</span>
 							</p>
 						</div>
 					</div>
@@ -54,7 +62,7 @@
 				<div class="personal_main">
 					<div class="personal_main_box">
 						<div class="personal_main_header">
-							<i style="background:url('../../img/icon.png') no-repeat 0 -100px"></i>
+							<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat 0 -100px"></i>
 							<h4 style="font-size:20px;">我的行程(4)</h4>
 							<a href="#">查看全部</a>
 						</div>
@@ -103,7 +111,7 @@
 					</div>
 					<div class="personal_main_box">
 						<div class="personal_main_header">
-							<i style="background:url('../../img/icon.png') no-repeat 0 -100px"></i>
+							<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat 0 -100px"></i>
 							<h4 style="font-size:20px;">我的收藏(4)</h4>
 							<a href="#">查看全部</a>
 						</div>
@@ -158,4 +166,5 @@
 		<jsp:include page="../common/footer.jsp"></jsp:include>
 	</div>
 </body>
+<script src="<%=request.getContextPath() %>/js/common/common.js"></script>
 </html>

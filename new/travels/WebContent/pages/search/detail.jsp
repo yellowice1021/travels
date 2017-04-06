@@ -16,7 +16,7 @@
 	</style>
 </head>
 <body onload="checkStatus('${status}')">
-	<div class="detailtrip_container" ng-app="travelsApp">
+	<div class="detailtrip_container" ng-app="travelsApp" ng-controller="tripDetailController">
 		<!--导航栏信息-->
 		<div ng-controller="headerController" ng-init="initHeaderFlag=1;headerFlag=1">
 			<jsp:include page="../common/header.jsp"></jsp:include>
@@ -28,11 +28,18 @@
 				<div class="detail_person_box clearfix">
 					<img src="<%=request.getContextPath() %>/${message.picture}" />
 					<div class="detail_intoduce">
-						<div class="detail_person clearfix">
+						<div class="detail_person clearfix" ng-init="save.ifSave=${message.save};save.planId=${message.id};save.userId=${message.users}" ng-cloak>
+							<a class="detail_person_save" href="javascript:void(0);" title="取消收藏" style="background:url('<%=request.getContextPath() %>/img/save.jpg') no-repeat -250px -62px" ng-if="save.ifSave==1" ng-click="save.deleteSaveClick()"></a>
+							<a class="detail_person_save" href="javascript:void(0);" title="收藏行程" style="background:url('<%=request.getContextPath() %>/img/save.jpg') no-repeat -330px -62px;cursor:pointer" ng-click="save.saveTripClick()" ng-if="save.ifSave==0"></a>
 							<h4>${message.title}</h4>
 							<span>${message.date}发布</span>
 						</div>
 						<div class="detail_text">
+							<p class="detail_person_txt clearfix">
+								<span class="detail_title">发布者：</span>
+								<img src="<%=request.getContextPath() %>/${message.face}" />
+								<span>${message.username}</span>
+							</p>
 							<p>
 								<span class="detail_title_box">
 									<span class="detail_title">行程出发地：</span>
@@ -248,6 +255,7 @@
 	</div>
 </body>
 <script src="<%=request.getContextPath() %>/js/common/common.js"></script>
+<script src="<%=request.getContextPath() %>/js/controller/trip.js"></script>
 <script>
 	function checkStatus(status) {
 		if(status == "success") {

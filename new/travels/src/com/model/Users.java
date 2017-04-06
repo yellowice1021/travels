@@ -13,6 +13,8 @@ public class Users {
 	private String userCity;
 	private String userIntroduce;
 	private String userFace;
+	private int saveNumber;
+	private int tripNumber;
 	
 	public int getUserId() {
 		return userId;
@@ -62,7 +64,18 @@ public class Users {
 	public void setUserFace(String userFace) {
 		this.userFace = userFace;
 	}
-	
+	public int getSaveNumber() {
+		return saveNumber;
+	}
+	public void setSaveNumber(int saveNumber) {
+		this.saveNumber = saveNumber;
+	}
+	public int getTripNumber() {
+		return tripNumber;
+	}
+	public void setTripNumber(int tripNumber) {
+		this.tripNumber = tripNumber;
+	}
 	
 	
 }

@@ -1,7 +1,6 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,20 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.dao.UserDao;
 import com.model.Users;
 import com.service.UserService;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class SaveServlet
  */
-@WebServlet("/LoginServlet")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/SaveServlet")
+public class SaveServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public SaveServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,28 +40,22 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String username = request.getParameter("username");
-		String passwords = request.getParameter("passwords");
-		String verifyCode = request.getParameter("verifyCode");
-		String picCode = (String) request.getSession().getAttribute("piccode");
+		String operate = request.getParameter("operate");
+		int planId = Integer.parseInt(request.getParameter("planId"));
+		int userId = Integer.parseInt(request.getParameter("userId"));
+		int loginId = (int) request.getSession().getAttribute("userId");
 		
-		String status = "";
 		UserService userService = new UserService();
-		Users users = new Users();
-		try {
-			status = userService.checkLogin(username, passwords, verifyCode, picCode);
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		String status = "";
+		
+		if(operate.equals("save")) {
+			status = userService.saveTrip(loginId, userId, planId);
+		} else if(operate.equals("delete")) {
+			status = userService.deleteSave(planId, loginId);
 		}
 		
-		// 记录用户信息到session中
-		if(status == "success") {
-			users = userService.getMessage(username);
-			request.getSession().setAttribute("userId", users.getUserId());
-		}
+		System.out.print(status);
 		
-		response.setCharacterEncoding("utf-8");
 		response.getWriter().write(status);
 		response.getWriter().flush();
 		response.getWriter().close();
