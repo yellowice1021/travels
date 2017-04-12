@@ -1,9 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,20 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dao.SearchTripDao;
-import com.service.SearchTripService;
+import net.sf.json.JSONArray;
+
+import com.model.Foot;
+import com.service.FootService;
 
 /**
- * Servlet implementation class ReleaseCommentServlet
+ * Servlet implementation class GetFootServlet
  */
-@WebServlet("/ReleaseCommentServlet")
-public class ReleaseCommentServlet extends HttpServlet {
+@WebServlet("/GetFootServlet")
+public class GetFootServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReleaseCommentServlet() {
+    public GetFootServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,6 +35,7 @@ public class ReleaseCommentServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -42,17 +44,16 @@ public class ReleaseCommentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		request.setCharacterEncoding("utf-8");
+		int userId = (int) request.getSession().getAttribute("userId");
+		FootService footService = new FootService();
+		List<Foot> foots = new ArrayList<Foot>();
 		
-		String status = "";
-		int id = Integer.parseInt(request.getParameter("id"));
-		String comment = request.getParameter("comments");
-		int userid = (int) request.getSession().getAttribute("userId");		
-		SearchTripService searchTripService = new SearchTripService();
+		footService.getFoot(userId, foots);
 		
-		status = searchTripService.searchReleaseComment(id, userid, comment);
-		
-		response.getWriter().write(status);
+		response.setCharacterEncoding("utf-8");
+		JSONArray json1 = JSONArray.fromObject(foots);
+		response.getWriter().write(json1.toString());
+		System.out.print(json1.toString());
 		response.getWriter().flush();
 		response.getWriter().close();
 		

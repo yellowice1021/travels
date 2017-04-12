@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dao.UserDao;
+import com.model.TripMessage;
 import com.model.Users;
+import com.service.UserService;
 
 /**
  * Servlet implementation class SearchPersonalServelt
@@ -42,10 +46,15 @@ public class SearchPersonalServelt extends HttpServlet {
 		
 		int userId = (int) request.getSession().getAttribute("userId");
 		Users users = new Users();
-		UserDao userDao = new UserDao();
+		List<TripMessage> tripMessage = new ArrayList<TripMessage>();
+		List<TripMessage> tripMessageSave = new ArrayList<TripMessage>();
+		UserService userService = new UserService();
 		
-		userDao.getMessageById(userId, users);
+		userService.getPersonalMessage(userId, users, tripMessage, tripMessageSave);
+		
 		request.setAttribute("users", users);
+		request.setAttribute("tripMessage", tripMessage);
+		request.setAttribute("tripMessageSave", tripMessageSave);
 		request.getRequestDispatcher("pages/users/personal.jsp").forward(request, response);
 		
 	}

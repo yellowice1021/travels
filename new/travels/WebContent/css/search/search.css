@@ -153,19 +153,6 @@
 .introduce_title {
   font-weight: bold; }
 
-.search_empty {
-  width: 300px;
-  height: 200px;
-  margin: 0 auto; }
-  .search_empty i {
-    width: 150px;
-    height: 180px;
-    float: left; }
-  .search_empty h4 {
-    font-size: 25px;
-    float: left;
-    padding-top: 60px; }
-
 .detail_box {
   padding-top: 30px; }
 
@@ -211,7 +198,8 @@
     resize: none;
     padding: 10px;
     font-size: 14px;
-    border: solid thin #aaaaaa; }
+    border: solid thin #aaaaaa;
+    color: #666; }
   .comment_write_box button {
     padding: 8px 30px;
     background-color: #9a9a9a;

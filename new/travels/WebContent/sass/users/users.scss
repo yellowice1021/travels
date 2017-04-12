@@ -44,6 +44,14 @@
 .trips_box_text {
     @extend %trips-text;
 }
+.my_trip_delete {
+    float: right;
+    cursor: pointer;
+    color: $login-register-color;
+    &:hover {
+        color: blue;
+    }
+}
 
 // 我的收藏界面
 .my_save_box {
@@ -60,6 +68,14 @@
 }
 .my_save_text {
     @extend %trips-text;
+}
+.my_save_delete {
+    float: right;
+    cursor: pointer;
+    color: $login-register-color;
+    &:hover {
+        color: blue;
+    }
 }
 
 // 个人资料管理
@@ -374,6 +390,8 @@
         height: 60px;
         resize: none;
         float: left;
+        padding: 5px;
+        color: #666;
     }
 }
 .foot_add_day_input {
@@ -393,6 +411,30 @@
     span {
         float: left;
     }
+}
+.point_message_box {
+    color: #666;
+    li {
+        padding: 5px 0;
+    }
+    span {
+        display: inline-block;
+        padding-right: 5px;
+        font-weight: bold;
+    }
+    a {
+        display: inline-block;
+        margin-right: 10px;
+        &:hover {
+            color: $login-register-color;
+        }
+    }
+}
+#my_update_box {
+    display: none;
+}
+#mask {
+    display: none;
 }
 
 

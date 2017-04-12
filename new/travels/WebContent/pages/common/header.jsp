@@ -72,17 +72,17 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="<%=request.getContextPath() %>/UsersTripServlet">
 							<span>我的行程</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="<%=request.getContextPath() %>/UsersSaveServlet">
 							<span>我的收藏</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="<%=request.getContextPath() %>/pages/users/foot.jsp">
 							<span>我的足迹</span>
 						</a>
 					</li>

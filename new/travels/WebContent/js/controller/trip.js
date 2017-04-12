@@ -65,6 +65,40 @@ app.controller("tripDetailController", function($scope, $http) {
 		}
 	}
 	
+	// 行程评论
+	var tripComment = {
+		id: "",
+		commentsText: "",
+		commentsClick: function(id) {
+			if(this.commentsText != "") {
+				$http({  
+				    method:'post',  
+				    url:'ReleaseCommentServlet',
+				    data:{
+				    	comments: this.commentsText,
+				    	id: id
+				    },
+				}).then(function successCallback(response) {
+				    var data = response.data;
+				    switch(data) {
+				    	case 'error': 
+				    		alert("评论失败，请重试");
+				    		break;
+				    	case 'success': 
+				    		alert("评论成功");
+				    		location.reload();
+				    		break;
+				    	default: 
+				    		break;
+				    }
+				}, function errorCallback(response) {
+				    alert('评论失败，请重试');
+				});
+			}
+		}
+	}
+	
 	$scope.save = save;
+	$scope.tripComment = tripComment;
 	
 });

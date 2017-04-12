@@ -15,7 +15,7 @@
 		}
 	</style>
 </head>
-<body onload="checkStatus('${status}')">
+<body>
 	<div class="detailtrip_container" ng-app="travelsApp" ng-controller="tripDetailController">
 		<!--导航栏信息-->
 		<div ng-controller="headerController" ng-init="initHeaderFlag=1;headerFlag=1">
@@ -213,10 +213,9 @@
 						<h4>评论区</h4>
 					</div>
 					<div class="comment_write_box">
-						<form action="<%=request.getContextPath() %>/ReleaseCommentServlet" method="post">
-							<input type="hidden" value="${message.id}" name="id" />
-							<textarea name="comment" placeholder="亲，说说你对这个行程规划的想法" required></textarea>
-							<button>评论</button>
+						<form>
+							<textarea name="comment" placeholder="亲，说说你对这个行程规划的想法" required ng-model="tripComment.commentsText"></textarea>
+							<button ng-click="tripComment.commentsClick(${message.id})">评论</button>
 						</form>
 					</div>
 					<div class="comment_detail_box">
@@ -256,13 +255,4 @@
 </body>
 <script src="<%=request.getContextPath() %>/js/common/common.js"></script>
 <script src="<%=request.getContextPath() %>/js/controller/trip.js"></script>
-<script>
-	function checkStatus(status) {
-		if(status == "success") {
-			alert("评论成功");
-		}else if(status == "error") {
-			alert("评论失败，请重试");
-		}
-	}
-</script>
 </html>

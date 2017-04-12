@@ -207,6 +207,13 @@
 .trip_box_main {
   margin: 30px 0; }
 
+.my_trip_delete {
+  float: right;
+  cursor: pointer;
+  color: #B60F0E; }
+  .my_trip_delete:hover {
+    color: blue; }
+
 .my_save_box {
   padding-bottom: 80px; }
 
@@ -216,6 +223,13 @@
 
 .my_save_main {
   margin-top: 30px; }
+
+.my_save_delete {
+  float: right;
+  cursor: pointer;
+  color: #B60F0E; }
+  .my_save_delete:hover {
+    color: blue; }
 
 .my_message_box {
   padding-bottom: 80px; }
@@ -583,7 +597,9 @@
   width: 205px;
   height: 60px;
   resize: none;
-  float: left; }
+  float: left;
+  padding: 5px;
+  color: #666; }
 
 .foot_add_day_input input {
   width: 50px;
@@ -598,5 +614,25 @@
   float: left; }
 .foot_add_day_input span {
   float: left; }
+
+.point_message_box {
+  color: #666; }
+  .point_message_box li {
+    padding: 5px 0; }
+  .point_message_box span {
+    display: inline-block;
+    padding-right: 5px;
+    font-weight: bold; }
+  .point_message_box a {
+    display: inline-block;
+    margin-right: 10px; }
+    .point_message_box a:hover {
+      color: #B60F0E; }
+
+#my_update_box {
+  display: none; }
+
+#mask {
+  display: none; }
 
 /*# sourceMappingURL=users.css.map */

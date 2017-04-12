@@ -15,7 +15,7 @@
 	</style>
 </head>
 <body>
-	<div class="place_container" ng-app="travelsApp" ng-controller="tripCityController">
+	<div class="place_container" ng-app="travelsApp">
 		<!--导航栏信息-->
 		<div ng-controller="headerController" ng-init="initHeaderFlag=2;headerFlag=2">
 			<jsp:include page="../common/header.jsp"></jsp:include>

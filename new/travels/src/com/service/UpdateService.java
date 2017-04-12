@@ -1,6 +1,7 @@
 package com.service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,14 +41,15 @@ public class UpdateService {
 	// 修改头像
 	public void updateFace(HttpServletRequest request) {
 		
+		int userId = (int) request.getSession().getAttribute("userId");
 		UpdateDao updateDao = new UpdateDao();
-		String username = (String) request.getSession().getAttribute("username");
+		String fileName = new Date().getTime() + "";
 		int count = 0;
 
-		List<String> facePath = Upload.uploadFiles(request, username, "images/users");
+		List<String> facePath = Upload.uploadFiles(request, fileName, "images/users");
 		
 		for(String path: facePath) {
-			count = updateDao.updateFace(username, path);
+			count = updateDao.updateFace(userId, path);
 		}
 		
 	}

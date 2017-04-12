@@ -269,4 +269,17 @@ ul li {
     float: left;
     padding: 5px 0 0 5px; }
 
+.common_empty {
+  width: 300px;
+  height: 200px;
+  margin: 0 auto; }
+  .common_empty i {
+    width: 150px;
+    height: 180px;
+    float: left; }
+  .common_empty h4 {
+    font-size: 25px;
+    float: left;
+    padding-top: 60px; }
+
 /*# sourceMappingURL=common.css.map */

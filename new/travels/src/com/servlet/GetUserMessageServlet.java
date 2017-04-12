@@ -44,7 +44,7 @@ public class GetUserMessageServlet extends HttpServlet {
 		Users users = new Users();
 		UserService userService = new UserService();
 		
-		userService.getMessageById(userId, users);;
+		userService.getMessageById(userId, users);
 		request.setAttribute("users", users);
 		request.getRequestDispatcher("pages/users/message.jsp").forward(request, response);
 		

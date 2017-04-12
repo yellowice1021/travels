@@ -46,7 +46,6 @@ public class SearchDetailServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		int id = Integer.parseInt(request.getParameter("id"));
-		String status = request.getParameter("status");
 		int userid = (int) request.getSession().getAttribute("userId");
 
 		SearchTripService searchTripService = new SearchTripService();
@@ -55,12 +54,6 @@ public class SearchDetailServlet extends HttpServlet {
 		List<TripComment> tripComments = new ArrayList<TripComment>();
 		
 		searchTripService.searchTripDetail(userid, id, message, tripDetails, tripComments);
-		
-		if(status == null) {
-			request.setAttribute("status", "search");
-		} else {
-			request.setAttribute("status", status);
-		}
 		
 		request.setAttribute("message", message);
 		request.setAttribute("tripDetails", tripDetails);

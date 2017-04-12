@@ -5,7 +5,7 @@ app.controller("registerController", function($scope, $http) {
 	
 	// 验证码
 	var verifyImage = {
-		imageUrl: "ImageServlet",
+		imageUrl: "../../ImageServlet",
 		imageClick: function() {
 			var time = new Date().getTime();
 			this.imageUrl += "?d" + time;
@@ -219,5 +219,140 @@ app.controller("messageController", function($scope, $http) {
 	$scope.updateClass = updateClass;
 	$scope.passUser = passUser;
 	$scope.messageUser = messageUser;
+	
+});
+
+/*
+ * 取消收藏
+ */
+app.controller("deleteSaveController", function($scope, $http) {
+	
+	var save = {
+		deleteSaveClick: function(userId, planId) {
+			$http({  
+				    method:'post',  
+				    url:'SaveServlet',
+				    data:{
+				    	operate: "delete",
+				    	planId: planId,
+				    	userId: userId
+				    },
+			}).then(function successCallback(response) {
+			    var data = response.data;
+			    switch(data) {
+			    	case 'deleteError': 
+			    		alert("取消收藏失败，请重试");
+			    		break;
+			    	case 'success': 
+			    		alert("取消收藏成功");
+			    		location.reload();
+			    		break;
+			    	default: 
+			    		break;
+			    }
+			}, function errorCallback(response) {
+			    alert('取消收藏失败，请重试');
+			});
+		}
+	}
+	
+	$scope.save = save;
+	
+});
+
+/*
+ * 删除行程
+ */
+app.controller("deleteTripController", function($scope, $http) {
+	
+	var trip = {
+		deleteTripClick: function(planId) {
+			console.log(planId);
+			$http({  
+				    method:'post',  
+				    url:'TripServlet',
+				    data:{
+				    	planId: planId
+				    },
+			}).then(function successCallback(response) {
+			    var data = response.data;
+			    switch(data) {
+			    	case 'deleteError': 
+			    		alert("删除行程失败，请重试");
+			    		break;
+			    	case 'success': 
+			    		alert("删除行程成功");
+			    		location.reload();
+			    		break;
+			    	default: 
+			    		break;
+			    }
+			}, function errorCallback(response) {
+			    alert('删除行程失败，请重试');
+			});
+		}
+	}
+	
+	$scope.trip = trip;
+	
+});
+
+/*
+ * 我的足迹
+ */
+app.controller("footController", function($scope, $http) {
+	
+	var boxShowHide = {
+		ifShow: false,
+		ifShowClick: function() {
+			this.ifShow = true;
+		},
+		ifCloseClick: function() {
+			this.ifShow = false;
+		}
+	}
+	
+	var addFoot = {
+		province: "",
+		city: "",
+		dates: "",
+		days: "",
+		introduce: "",
+		addFootClick: function() {
+			if(this.dates && this.introduce) {
+				$http({  
+					    method:'post',  
+					    url:'../../AddFootServlet',
+					    data:{
+					    	province: this.province,
+					    	city: this.city,
+					    	dates: this.dates,
+					    	days: this.days,
+					    	introduce: this.introduce
+					    },
+				}).then(function successCallback(response) {
+				    var data = response.data;
+				    switch(data) {
+				    	case 'ifFootError': 
+				    		alert("该足迹已经存在，请重新添加");
+				    		break;
+				    	case 'addFootError': 
+				    		alert("添加失败，请重试");
+				    		break;
+				    	case 'success':
+				    		alert("添加成功");
+				    		location.reload();
+				    	default: 
+				    		break;
+				    }
+				}, function errorCallback(response) {
+				    alert('添加失败，请重试');
+				});
+			}
+		}
+	}
+	
+	$scope.boxShowHide = boxShowHide;
+	$scope.addFoot = addFoot;
 	
 });

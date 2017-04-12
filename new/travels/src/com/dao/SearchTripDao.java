@@ -316,4 +316,66 @@ public class SearchTripDao {
 		
 	}
 	
+	// 查找指定用户的全部行程信息
+	public void searchIdTripList(int userId, List<TripMessage> tripMessages) {
+		
+		Connection conn = DataBase.getConnection();
+		String sql = "select * from travels_plan where userid=?";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, userId);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				TripMessage message = new TripMessage();
+				message.setId(rs.getInt("id"));
+				message.setTitle(rs.getString("title"));
+				message.setInCity(rs.getString("destination"));
+				message.setDays(rs.getInt("day"));
+				message.setPicture(rs.getString("picture"));
+				tripMessages.add(message);
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
+	// 获取指定用户的全部收藏信息
+	public void getSaveList(int userId, List<TripMessage> tripMessages) {
+		
+		Connection conn = DataBase.getConnection();
+		String sql = "select travels_plan.id,day,title,picture,destination from travels_save,travels_plan where travels_save.userid=? and planid=travels_plan.id";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, userId);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				TripMessage message = new TripMessage();
+				message.setId(rs.getInt("id"));
+				message.setTitle(rs.getString("title"));
+				message.setInCity(rs.getString("destination"));
+				message.setDays(rs.getInt("day"));
+				message.setPicture(rs.getString("picture"));
+				tripMessages.add(message);
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
 }

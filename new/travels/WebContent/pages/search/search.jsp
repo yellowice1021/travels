@@ -116,7 +116,7 @@
 				</div>
 				<div class="search_main_box">
 					<c:if var="result" test="${empty tripMessage}">
-						<div class="search_empty clearfix">
+						<div class="common_empty clearfix">
 							<i style="background:url('<%=request.getContextPath() %>/img/empty.JPG') no-repeat -40px 0;background-size:250px 180px"></i>
 							<h4>暂无结果</h4>
 						</div>

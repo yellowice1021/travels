@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,14 +36,14 @@
 						</div>
 						<div class="personal_number clearfix">
 							<div class="personal_number_box">
-								<a href="#">
-									<h4>0</h4>
+								<a href="<%=request.getContextPath() %>/UsersTripServlet">
+									<h4>${users.tripNumber}</h4>
 									<span>我的行程</span>
 								</a>
 							</div>
 							<div class="personal_number_box" style="border: none;">
-								<a href="#">
-									<h4>0</h4>
+								<a href="<%=request.getContextPath() %>/UsersSaveServlet">
+									<h4>${users.saveNumber}</h4>
 									<span>我的收藏</span>
 								</a>
 							</div>
@@ -63,99 +64,55 @@
 					<div class="personal_main_box">
 						<div class="personal_main_header">
 							<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat 0 -100px"></i>
-							<h4 style="font-size:20px;">我的行程(4)</h4>
-							<a href="#">查看全部</a>
+							<h4 style="font-size:20px;">我的行程(${users.tripNumber})</h4>
+							<a href="<%=request.getContextPath() %>/UsersTripServlet">查看全部</a>
 						</div>
+						<c:if var="result" test="${empty tripMessage}">
+							<div class="common_empty clearfix">
+								<i style="background:url('<%=request.getContextPath() %>/img/empty.JPG') no-repeat -40px 0;background-size:250px 180px;"></i>
+								<h4>暂无行程</h4>
+							</div>
+						</c:if>
 						<ul class="clearfix">
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="personal_main_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="personal_main_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="personal_main_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="personal_main_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
+							<c:forEach var="message" items="${tripMessage}" begin="0" end="5" step="1">
+								<li>
+									<a href="<%=request.getContextPath() %>/SearchDetailServlet?id=${message.id}">
+										<img src="<%=request.getContextPath() %>/${message.picture}" />
+									</a>
+									<div class="personal_main_text">
+										<h4><a href="<%=request.getContextPath() %>/SearchDetailServlet?id=${message.id}">${message.title }</a></h4>
+										<p>目的地：${message.inCity }</p>
+										<p>行程天数：${message.days }天</p>
+									</div>
+								</li>
+							</c:forEach>
 						</ul>
 					</div>
 					<div class="personal_main_box">
 						<div class="personal_main_header">
 							<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat 0 -100px"></i>
-							<h4 style="font-size:20px;">我的收藏(4)</h4>
-							<a href="#">查看全部</a>
+							<h4 style="font-size:20px;">我的收藏(${users.saveNumber})</h4>
+							<a href="<%=request.getContextPath() %>/UsersSaveServlet">查看全部</a>
 						</div>
+						<c:if var="result" test="${empty tripMessageSave}">
+							<div class="common_empty clearfix">
+								<i style="background:url('<%=request.getContextPath() %>/img/empty.JPG') no-repeat -40px 0;background-size:250px 180px;"></i>
+								<h4>暂无行程</h4>
+							</div>
+						</c:if>
 						<ul class="clearfix">
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="personal_main_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="personal_main_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="personal_main_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
-							<li>
-								<a href="#">
-									<img src="../../images/search/beijing.jpg"  />
-								</a>
-								<div class="personal_main_text">
-									<h4><a href="#">北京1日游</a></h4>
-									<p>目的地：北京</p>
-									<p>行程天数：1天</p>
-								</div>
-							</li>
+							<c:forEach var="message" items="${tripMessageSave}" begin="0" end="5" step="1">
+								<li>
+									<a href="<%=request.getContextPath() %>/SearchDetailServlet?id=${message.id}">
+										<img src="<%=request.getContextPath() %>/${message.picture}"  />
+									</a>
+									<div class="personal_main_text">
+										<h4><a href="<%=request.getContextPath() %>/SearchDetailServlet?id=${message.id}">${message.title}</a></h4>
+										<p>目的地：${message.inCity}</p>
+										<p>行程天数：${message.days}天</p>
+									</div>
+								</li>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>

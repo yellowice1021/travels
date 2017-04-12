@@ -68,21 +68,6 @@
 .search_text {
     @extend %trips-text;
 }
-.search_empty {
-    width: 300px;
-    height: 200px;
-    margin: 0 auto;
-    i {
-        width: 150px;
-        height: 180px;
-        float: left;
-    }
-    h4 {
-        font-size: 25px;
-        float: left;
-        padding-top: 60px;
-    }
-}
 // 详情页面
 .detail_box {
     padding-top: 30px;
@@ -143,6 +128,7 @@
         padding: 10px;
         font-size: 14px;
         border: solid thin #aaaaaa;
+        color: #666;
     }
     button {
         padding: 8px 30px;

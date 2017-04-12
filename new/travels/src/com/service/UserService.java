@@ -2,8 +2,11 @@ package com.service;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
+import com.dao.SearchTripDao;
 import com.dao.UserDao;
+import com.model.TripMessage;
 import com.model.Users;
 
 /*
@@ -106,6 +109,52 @@ public class UserService {
 		UserDao userDao = new UserDao();
 		
 		userDao.getMessageById(id, users);
+		
+	}
+	
+	// 用户个人中心信息
+	public void getPersonalMessage(int userId, Users users, List<TripMessage> tripMessage, List<TripMessage> tripMessageSave) {
+		
+		UserDao userDao = new UserDao();
+		SearchTripDao searchTripDao = new SearchTripDao();
+		
+		userDao.getMessageById(userId, users);
+		userDao.getSaveNumber(userId, users);
+		userDao.getTripNumber(userId, users);
+		searchTripDao.searchIdTripList(userId, tripMessage);
+		searchTripDao.getSaveList(userId, tripMessageSave);
+		
+	}
+	
+	// 用户搜藏
+	public void getSaveMessage(int userId, List<TripMessage> tripMessages) {
+		
+		SearchTripDao searchTripDao = new SearchTripDao();
+		
+		searchTripDao.getSaveList(userId, tripMessages);
+		
+	}
+	
+	// 用户行程
+	public void getUserTripMessage(int userId, List<TripMessage> tripMessages) {
+		
+		SearchTripDao searchTripDao = new SearchTripDao();
+		
+		searchTripDao.searchIdTripList(userId, tripMessages);
+		
+	}
+	
+	// 删除行程
+	public String deleteTrip(int planId) {
+		
+		String status = "success";
+		UserDao userDao = new UserDao();
+		
+		if(userDao.deleteTrip(planId) != 1) {
+			status = "deleteError";
+		}
+		
+		return status;
 		
 	}
 	

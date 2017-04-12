@@ -62,15 +62,15 @@ public class UpdateDao {
 	}
 	
 	// 更新头像
-	public int updateFace(String username, String path) {
+	public int updateFace(int userId, String path) {
 		int count = 0;
 		try
 		{
 			Connection conn = DataBase.getConnection();
-			String sql = "update travels_users set face=? where username=?";
+			String sql = "update travels_users set face=? where id=?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, path);
-			ps.setString(2, username);
+			ps.setInt(2, userId);
 			count = ps.executeUpdate();
 			ps.close();
 			conn.close();

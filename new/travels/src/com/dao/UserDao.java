@@ -198,5 +198,77 @@ public class UserDao {
 		
 	}
 	
+	// 获取用户收藏数量
+	public void getSaveNumber(int userId, Users users) {
+		
+		Connection conn = DataBase.getConnection();
+		String sql = "select count(*) from travels_save where userid=?";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, userId);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				users.setSaveNumber(rs.getInt("count(*)"));
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
+	// 获取用户行程数量
+	public void getTripNumber(int userId, Users users) {
+		
+		Connection conn = DataBase.getConnection();
+		String sql = "select count(*) from travels_plan where userid=?";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, userId);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				users.setTripNumber(rs.getInt("count(*)"));
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
+	// 删除行程
+	public int deleteTrip(int id) {
+		
+		int row = 0;
+		Connection conn = DataBase.getConnection();
+		String sql = "delete from travels_plan where id=?";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			row = ps.executeUpdate();
+			ps.close();
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return row;
+		
+	}
+	
 	
 }

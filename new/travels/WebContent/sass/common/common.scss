@@ -315,3 +315,20 @@ ul li {
         padding: 5px 0 0 5px;
     }
 }
+
+// 暂无结果显示信息界面
+.common_empty {
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+    i {
+        width: 150px;
+        height: 180px;
+        float: left;
+    }
+    h4 {
+        font-size: 25px;
+        float: left;
+        padding-top: 60px;
+    }
+}

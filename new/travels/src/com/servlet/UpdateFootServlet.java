@@ -1,9 +1,6 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,20 +8,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.dao.SearchTripDao;
-import com.service.SearchTripService;
+import com.model.Foot;
+import com.service.FootService;
 
 /**
- * Servlet implementation class ReleaseCommentServlet
+ * Servlet implementation class UpdateFootServlet
  */
-@WebServlet("/ReleaseCommentServlet")
-public class ReleaseCommentServlet extends HttpServlet {
+@WebServlet("/UpdateFootServlet")
+public class UpdateFootServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReleaseCommentServlet() {
+    public UpdateFootServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,20 +38,20 @@ public class ReleaseCommentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		request.setCharacterEncoding("utf-8");
-		
-		String status = "";
+
 		int id = Integer.parseInt(request.getParameter("id"));
-		String comment = request.getParameter("comments");
-		int userid = (int) request.getSession().getAttribute("userId");		
-		SearchTripService searchTripService = new SearchTripService();
+		String dates = request.getParameter("dates");
+		int days = Integer.parseInt(request.getParameter("days"));
+		String introduce = request.getParameter("introduce");
+		Foot foot = new Foot();
+		FootService footService = new FootService();
 		
-		status = searchTripService.searchReleaseComment(id, userid, comment);
+		foot.setId(id);
+		foot.setDate(dates);
+		foot.setDay(days);
+		foot.setIntroduce(introduce);
 		
-		response.getWriter().write(status);
-		response.getWriter().flush();
-		response.getWriter().close();
+		footService.updateFoot(foot);
 		
 	}
 
