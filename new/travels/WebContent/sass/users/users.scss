@@ -48,6 +48,7 @@
     float: right;
     cursor: pointer;
     color: $login-register-color;
+    margin-left: 10px;
     &:hover {
         color: blue;
     }
@@ -435,6 +436,28 @@
 }
 #mask {
     display: none;
+}
+#my_delete_box {
+    display: none;
+    @include bomb-box(300px, 200px, 30%);
+}
+.delete_main {
+    margin: 30px 0;
+}
+.delete_main_text {
+    text-align: center;
+}
+.delete_main_button {
+    margin-top: 30px;
+    #delete_sure_button {
+        float: left;
+        margin: 0 30px 0 40px;
+        padding: 6px 0;
+    }
+    #delete_no_button {
+        float: left;
+        padding: 6px 0;
+    }
 }
 
 

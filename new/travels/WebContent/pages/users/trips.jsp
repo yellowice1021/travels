@@ -47,7 +47,8 @@
 									<p>目的地：${message.inCity}</p>
 									<p>
 										<span>行程天数：${message.days}天</span>
-										<span class="my_trip_delete" ng-click="trip.deleteTripClick(${message.id})">删除行程</span>	
+										<span class="my_trip_delete" ng-click="trip.deleteTripClick(${message.id})">删除行程</span>
+										<span class="my_trip_delete" ng-click="trip.updateTripClick(${message.id})">修改行程</span>		
 									</p>
 								</div>
 							</li>

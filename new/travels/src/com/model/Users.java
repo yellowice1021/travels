@@ -15,6 +15,7 @@ public class Users {
 	private String userFace;
 	private int saveNumber;
 	private int tripNumber;
+	private int footNumber;
 	
 	public int getUserId() {
 		return userId;
@@ -75,6 +76,12 @@ public class Users {
 	}
 	public void setTripNumber(int tripNumber) {
 		this.tripNumber = tripNumber;
+	}
+	public int getFootNumber() {
+		return footNumber;
+	}
+	public void setFootNumber(int footNumber) {
+		this.footNumber = footNumber;
 	}
 	
 	

@@ -18,7 +18,7 @@ function showMapLine(inCityLng, inCityLat, outCityLng, outCityLat) {
 	marker.disableDragging();           // 不可拖拽
 	
 	var distance = parseInt(map.getDistance(pointA,pointB));
-	var distanceBox = document.getElementById("distance_box").innerHTML = distance;
+	var distanceBox = document.getElementById("distance_box").innerHTML = (distance/1000).toFixed(2);
 	
 	map.enableScrollWheelZoom(true);
 }
@@ -68,10 +68,11 @@ function getFoot() {
 	    var sContent = '<ul class="point_message_box"><li><span>地点:</span>' + point.province + '-' + point.city + '</li><li><span>出发日期:</span>' 
 	    + point.date + '</li><li><span>天数:</span>' + point.day + '</li><li><span>操作:</span>' 
 	    + '<a href="javascript:void(0);" onclick="pointDeatil(\''+ point.province +'\',\''+ point.city + '\',\'' + point.date + '\',\'' + point.day + '\',\'' + point.introduce + '\',\'' + point.id + '\')">'
-	    + '查看详情</a><a href="javascript:void(0);">删除足迹</a></li></ul>'
+	    + '查看详情</a><a href="javascript:void(0); onclick=pointDelete(\''+ point.id + '\')">删除足迹</a></li></ul>'
 	    var infoWindow = new BMap.InfoWindow(sContent); 		//创建信息窗口对象
 	    thisMarker.openInfoWindow(infoWindow); 					//图片加载完后重绘infoWindow
 	}
+	
 }
 
 // 查看详情
@@ -94,15 +95,86 @@ function pointDeatil(province, city, date, day, introduce, id) {
 	
 	// 修改信息
 	$("#foot_update").click(function() {
+		
+		var updateDates = $("#foot_date").val();
+		var updateDay = $("#foot_day").val();
+		var updateIntroduce = $("#foot_introduce").val();
+		
 		$.post("../../UpdateFootServlet",
 		{
 	    	id: id,
-	    	dates: date,
-	    	days: day,
-	    	introduce: introduce
+	    	dates: updateDates,
+	    	days: updateDay,
+	    	introduce: updateIntroduce
 		},
 		function(data,status){
-			alert("Data: " + data + "\nStatus: " + status);
+			if(status == "success") {
+				switch(data) {
+					case 'updateError':
+						alert("修改失败，请重试");
+						break;
+					case 'success':
+						alert("修改成功");
+						location.reload();
+						break;
+					default:
+						break;
+				}
+			} else {
+				alert("修改失败，请重试");
+			}
+		});
+	});
+	
+	$(".delete_day_button").click(function() {
+		var dayNumber = $("#foot_day").val();
+		if(dayNumber == 1) {
+			return;
+		} else {
+			dayNumber--;
+			$("#foot_day").val(dayNumber);
+		}
+	});
+	
+	$(".add_day_button").click(function() {
+		var dayNumber = $("#foot_day").val();
+		dayNumber++;
+		$("#foot_day").val(dayNumber);
+	});
+}
+
+// 删除足迹
+function pointDelete(id) {
+	
+	$("#mask,#my_delete_box").show();
+	
+	// 关闭窗口
+	$("#foot_delete_close,#delete_no_button").click(function() {
+		$("#my_delete_box,#mask").hide();
+	});
+	
+	// 确定删除
+	$("#delete_sure_button").click(function() {
+		$.post("../../DeleteFootServlet",
+		{
+	    	id: id
+		},
+		function(data,status){
+			if(status == "success") {
+				switch(data) {
+					case 'deleteError':
+						alert("删除失败，请重试");
+						break;
+					case 'success':
+						alert("删除成功");
+						location.reload();
+						break;
+					default:
+						break;
+				}
+			} else {
+				alert("删除失败，请重试");
+			}
 		});
 	});
 	

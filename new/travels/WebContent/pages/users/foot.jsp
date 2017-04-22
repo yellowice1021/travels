@@ -70,9 +70,9 @@
 								<li class="foot_add_day_input clearfix">
 									<label class="float_left">出游天数：</label>
 									<span>
-										<a href="#">—</a>
+										<a href="javascript:void(0);" ng-click="addFoot.deleteDayClick()">—</a>
 										<input type="text" value="1"  required ng-model="addFoot.days" ng-init="addFoot.days=1" />
-										<a href="#">+</a>
+										<a href="javascript:void(0);" ng-click="addFoot.addDayClick()">+</a>
 									</span>
 								</li>
 								<li class="clearfix">
@@ -122,9 +122,9 @@
 								<li class="foot_add_day_input clearfix">
 									<label class="float_left">出游天数：</label>
 									<span>
-										<a href="#">—</a>
+										<a href="#" class="delete_day_button">—</a>
 										<input type="text" value="1" required id="foot_day" />
-										<a href="#">+</a>
+										<a href="#" class="add_day_button">+</a>
 									</span>
 								</li>
 								<li class="clearfix">
@@ -136,6 +136,21 @@
 								</li>
 							</ul>
 						</form>
+					</div>
+				</div>
+				<div id="my_delete_box">
+					<div class="bomb_header">
+						<h4>删除足迹</h4>
+						<span id="foot_delete_close">×</span>
+					</div>
+					<div class="delete_main">
+						<div class="delete_main_text">
+							<h4>是否确定删除该足迹？</h4>
+						</div>
+						<div class="delete_main_button clearfix">
+							<button id="delete_sure_button">确定</button>
+							<button id="delete_no_button">取消</button>
+						</div>
 					</div>
 				</div>
 			</div>

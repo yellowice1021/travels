@@ -121,6 +121,7 @@ public class UserService {
 		userDao.getMessageById(userId, users);
 		userDao.getSaveNumber(userId, users);
 		userDao.getTripNumber(userId, users);
+		userDao.getFootNumber(userId, users);
 		searchTripDao.searchIdTripList(userId, tripMessage);
 		searchTripDao.getSaveList(userId, tripMessageSave);
 		

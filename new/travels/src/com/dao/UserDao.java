@@ -270,5 +270,30 @@ public class UserDao {
 		
 	}
 	
+	// 获取用户足迹数量
+	public void getFootNumber(int userId, Users users) {
+		
+		Connection conn = DataBase.getConnection();
+		String sql = "select count(*) from travels_foot where userid=?";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, userId);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				users.setFootNumber(rs.getInt("count(*)"));
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 }

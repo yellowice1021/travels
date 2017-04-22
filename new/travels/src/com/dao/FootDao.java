@@ -140,4 +140,26 @@ public class FootDao {
 		
 	}
 	
+	// 删除足迹
+	public int deleteFoot(int id) {
+		
+		int row = 0;
+		Connection conn = DataBase.getConnection();
+		String sql = "delete from travels_foot where id=?";
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			row = ps.executeUpdate();
+			ps.close();
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return row;
+		
+	}
+	
 }

@@ -107,6 +107,9 @@
 													<h4>推荐行程</h4>
 												</div>
 												<div class="arrange_introduce">
+													<c:if var="result" test="${empty detail.trip}">
+														<p>暂未填写</p>
+													</c:if>
 													<p>
 														<span>${detail.trip}</span>
 													</p>
@@ -139,6 +142,9 @@
 													<h4>推荐美食</h4>
 												</div>
 												<div class="arrange_introduce">
+													<c:if var="result" test="${empty detail.food}">
+														<p>暂未填写</p>
+													</c:if>
 													<p>
 														<span>${detail.food}</span>
 													</p>
@@ -171,6 +177,9 @@
 													<h4>推荐住宿</h4>
 												</div>
 												<div class="arrange_introduce">
+													<c:if var="result" test="${empty detail.live}">
+														<p>暂未填写</p>
+													</c:if>
 													<p>
 														<span>${detail.live}</span>
 													</p>

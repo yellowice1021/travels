@@ -210,7 +210,8 @@
 .my_trip_delete {
   float: right;
   cursor: pointer;
-  color: #B60F0E; }
+  color: #B60F0E;
+  margin-left: 10px; }
   .my_trip_delete:hover {
     color: blue; }
 
@@ -634,5 +635,78 @@
 
 #mask {
   display: none; }
+
+#my_delete_box {
+  display: none;
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -100px;
+  z-index: 10;
+  border-radius: 10px; }
+  #my_delete_box .bomb_header {
+    height: 50px;
+    background-color: #B60F0E;
+    text-align: center;
+    line-height: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative; }
+    #my_delete_box .bomb_header h4 {
+      color: white;
+      font-size: 20px; }
+    #my_delete_box .bomb_header span {
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      top: 14px;
+      right: 10px;
+      color: #d0d3d4;
+      font-size: 18px;
+      display: inline-block;
+      line-height: 16px;
+      text-align: center;
+      border-radius: 50%;
+      border: solid thin #d0d3d4;
+      padding: 2px;
+      cursor: pointer; }
+      #my_delete_box .bomb_header span:hover {
+        color: white;
+        border: solid thin white; }
+  #my_delete_box button {
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+    background-color: #B60F0E;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    border: solid thin #B60F0E;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer; }
+    #my_delete_box button:hover {
+      background-color: #9a9a9a;
+      border: solid thin #9a9a9a; }
+
+.delete_main {
+  margin: 30px 0; }
+
+.delete_main_text {
+  text-align: center; }
+
+.delete_main_button {
+  margin-top: 30px; }
+  .delete_main_button #delete_sure_button {
+    float: left;
+    margin: 0 30px 0 40px;
+    padding: 6px 0; }
+  .delete_main_button #delete_no_button {
+    float: left;
+    padding: 6px 0; }
 
 /*# sourceMappingURL=users.css.map */

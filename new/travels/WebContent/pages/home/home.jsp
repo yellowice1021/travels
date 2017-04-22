@@ -15,7 +15,7 @@
 	</style>
 </head>
 <body>
-	<div class="home_container" ng-app="travelsApp">
+	<div class="home_container" ng-app="travelsApp" ng-controller="homeController">
 		<!--导航栏信息-->
 		<div ng-controller="headerController" ng-init="initHeaderFlag=0;headerFlag=0">
 			<jsp:include page="../common/header.jsp"></jsp:include>
@@ -23,12 +23,17 @@
 		
 		<!--轮播图-->
 		<div class="home_banner_container">
-			<div class="home_banner_box">
-				<ul>
-					<li>
-						<a href="#" style="background:url('../../images/home/banner/1.jpeg') no-repeat center 0px"></a>
-					</li>
-				</ul>
+			<div class="home_banner_box" ng-style="banner.bannerBackground" ng-mouseenter="banner.stopBanner()" ng-mouseleave="banner.beginBanner()">
+				<div class="home_banner_choose">
+					<div class="home_banner_button clearfix">
+						<span ng-class="{'home_banner_on':banner.index==1}" ng-click="banner.indexClick(1)"></span>
+						<span ng-class="{'home_banner_on':banner.index==2}" ng-click="banner.indexClick(2)"></span>
+						<span ng-class="{'home_banner_on':banner.index==3}" ng-click="banner.indexClick(3)"></span>
+						<span ng-class="{'home_banner_on':banner.index==4}" ng-click="banner.indexClick(4)"></span>
+					</div>
+					<a href="javascript:void(0);" class="home_banner_change change_left" ng-click="banner.prevClick()">&lt;</a>
+					<a href="javascript:void(0);" class="home_banner_change change_right" ng-click="banner.nextClick()">&gt;</a>
+				</div>
 			</div>
 		</div>
 		

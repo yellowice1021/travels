@@ -41,10 +41,16 @@
 									<span>我的行程</span>
 								</a>
 							</div>
-							<div class="personal_number_box" style="border: none;">
+							<div class="personal_number_box">
 								<a href="<%=request.getContextPath() %>/UsersSaveServlet">
 									<h4>${users.saveNumber}</h4>
 									<span>我的收藏</span>
+								</a>
+							</div>
+							<div class="personal_number_box" style="border: none;">
+								<a href="<%=request.getContextPath() %>/pages/users/foot.jsp">
+									<h4>${users.footNumber}</h4>
+									<span>我的足迹</span>
 								</a>
 							</div>
 						</div>

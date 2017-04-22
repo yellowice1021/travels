@@ -45,7 +45,7 @@ public class SearchTripServlet extends HttpServlet {
 		
 		String place = request.getParameter("place");
 		int day = Integer.parseInt(request.getParameter("day"));
-
+		
 		byte[] bytes = place.getBytes("ISO-8859-1");	 
 		place = new String(bytes,"utf-8");
 		

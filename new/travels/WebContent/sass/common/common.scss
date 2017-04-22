@@ -146,6 +146,7 @@ ul li {
     background: url("../../img/header.png") right -366px;
     cursor: pointer;
     position: relative;
+    z-index: 10;
     img {
         width: 30px;
         height: 30px;

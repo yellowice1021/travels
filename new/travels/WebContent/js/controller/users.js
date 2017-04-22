@@ -290,6 +290,30 @@ app.controller("deleteTripController", function($scope, $http) {
 			}, function errorCallback(response) {
 			    alert('删除行程失败，请重试');
 			});
+		},
+		updateTripClick: function(planId) {
+			$http({  
+				    method:'post',  
+				    url:'UpdateTripServlet',
+				    data:{
+				    	planId: planId
+				    },
+			}).then(function successCallback(response) {
+//			    var data = response.data;
+//			    switch(data) {
+//			    	case 'deleteError': 
+//			    		alert("删除行程失败，请重试");
+//			    		break;
+//			    	case 'success': 
+//			    		alert("删除行程成功");
+//			    		location.reload();
+//			    		break;
+//			    	default: 
+//			    		break;
+//			    }
+			}, function errorCallback(response) {
+//			    alert('删除行程失败，请重试');
+			});
 		}
 	}
 	
@@ -349,6 +373,16 @@ app.controller("footController", function($scope, $http) {
 				    alert('添加失败，请重试');
 				});
 			}
+		},
+		deleteDayClick: function() {
+			if(this.days == 1) {
+				return;
+			} else {
+				this.days--;
+			}
+		},
+		addDayClick: function() {
+			this.days++;
 		}
 	}
 	

@@ -53,7 +53,7 @@ public class GetFootServlet extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		JSONArray json1 = JSONArray.fromObject(foots);
 		response.getWriter().write(json1.toString());
-		System.out.print(json1.toString());
+		System.out.print(json1.toString() + "\n");
 		response.getWriter().flush();
 		response.getWriter().close();
 		

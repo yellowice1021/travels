@@ -57,13 +57,28 @@ public class FootService {
 	// 修改足迹
 	public String updateFoot(Foot foot) {
 		
-		String status = "";
+		String status = "success";
 		FootDao footDao = new FootDao();
-		int count = 0;
 
-		count = footDao.updateDao(foot);
+		if(footDao.updateDao(foot) != 1) {
+			status = "updateError";
+			return status;
+		}
 		
-		System.out.print(count);
+		return status;
+		
+	}
+	
+	// 删除足迹
+	public String deleteFoot(int id) {
+		
+		String status = "success";
+		FootDao footDao = new FootDao();
+		
+		if(footDao.deleteFoot(id) != 1) {
+			status = "deleteError";
+			return status;
+		}
 		
 		return status;
 		

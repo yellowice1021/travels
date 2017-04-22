@@ -8,20 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Foot;
 import com.service.FootService;
 
 /**
- * Servlet implementation class UpdateFootServlet
+ * Servlet implementation class DeleteFootServlet
  */
-@WebServlet("/UpdateFootServlet")
-public class UpdateFootServlet extends HttpServlet {
+@WebServlet("/DeleteFootServlet")
+public class DeleteFootServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateFootServlet() {
+    public DeleteFootServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,6 +30,7 @@ public class UpdateFootServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -38,21 +38,12 @@ public class UpdateFootServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		
 		int id = Integer.parseInt(request.getParameter("id"));
-		String dates = request.getParameter("dates");
-		int days = Integer.parseInt(request.getParameter("days"));
-		String introduce = request.getParameter("introduce");
-		Foot foot = new Foot();
 		FootService footService = new FootService();
 		String status = "";
 		
-		foot.setId(id);
-		foot.setDate(dates);
-		foot.setDay(days);
-		foot.setIntroduce(introduce);
-		
-		status = footService.updateFoot(foot);
+		status = footService.deleteFoot(id);
 		
 		response.getWriter().write(status);
 		response.getWriter().flush();

@@ -24,7 +24,7 @@ public class SearchTripDao {
 	public void searchCityTripMessage(String city, List<TripMessage> tripMessages) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan where destination=?";
+		String sql = "select * from travels_plan where destination=? order by id desc";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -55,7 +55,7 @@ public class SearchTripDao {
 	public void searchAllTripMessage(List<TripMessage> tripMessages) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan";
+		String sql = "select * from travels_plan order by id desc";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -85,7 +85,7 @@ public class SearchTripDao {
 	public void searchDayTripMessage(List<TripMessage> tripMessages, int day) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan where day=?";
+		String sql = "select * from travels_plan where day=? order by id desc";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -116,7 +116,7 @@ public class SearchTripDao {
 	public void searchCityDayTripMessage(List<TripMessage> tripMessages, String city, int day) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan where destination=? and day=?";
+		String sql = "select * from travels_plan where destination=? and day=? order by id desc";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -204,7 +204,7 @@ public class SearchTripDao {
 	}
 	
 	// 查找行程详细信息
-	public void searDetailTripMessage(int id, List<TripDetail> tripDetails) {
+	public void searchDetailTripMessage(int id, List<TripDetail> tripDetails) {
 		
 		Connection conn = DataBase.getConnection();
 		String sql = "select * from travels_detail where planid=? order by theday";
@@ -320,7 +320,7 @@ public class SearchTripDao {
 	public void searchIdTripList(int userId, List<TripMessage> tripMessages) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan where userid=?";
+		String sql = "select * from travels_plan where userid=? order by id desc";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -351,7 +351,7 @@ public class SearchTripDao {
 	public void getSaveList(int userId, List<TripMessage> tripMessages) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select travels_plan.id,day,title,picture,destination from travels_save,travels_plan where travels_save.userid=? and planid=travels_plan.id";
+		String sql = "select travels_plan.id,day,title,picture,destination from travels_save,travels_plan where travels_save.userid=? and planid=travels_plan.id order by travels_plan.id desc";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);

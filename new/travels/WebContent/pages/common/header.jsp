@@ -8,7 +8,7 @@
 				<span class="cor" ng-if="headerFlag==0" ng-cloak></span>
 				<ul class="header_another_navigation clearfix" ng-if="headerFlag==0" ng-cloak style="left:20px">
 					<li>
-						<a href="#">
+						<a href="<%=request.getContextPath() %>/pages/home/home.jsp">
 							<span>主页</span>
 						</a>
 					</li>
@@ -94,25 +94,25 @@
 			<div class="header_user_choose">
 				<ul>
 					<li>
-						<a href="#" class="clearfix">
+						<a href="<%=request.getContextPath() %>/GetUserMessageServlet" class="clearfix">
 							<i style="background-position: 0 -77px"></i>
 							<span>修改资料</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="clearfix">
+						<a href="<%=request.getContextPath() %>/UsersTripServlet" class="clearfix">
 							<i style="background-position: 0 -177px"></i>
 							<span>我的行程</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="clearfix">
+						<a href="<%=request.getContextPath() %>/UsersSaveServlet" class="clearfix">
 							<i style="background-position: 0 -216px"></i>
 							<span>我的收藏</span>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="clearfix">
+						<a href="<%=request.getContextPath() %>/pages/users/foot.jsp" class="clearfix">
 							<i style="background-position: 0 -97px"></i>
 							<span>我的足迹</span>
 						</a>
@@ -128,9 +128,10 @@
 			</div>
 		</div>
 		<div class="header_search float_right">
-			<form class="clearfix">
+			<form action="<%=request.getContextPath() %>/SearchTripServlet" method="post" class="clearfix">
 				<div class="header_search_box float_left">
-					<input type="text" placeholder="目的地/类型"  />
+					<input type="text" name="place" placeholder="目的地" />
+					<input type="hidden" name="day" value="0" />
 				</div>
 				<button class="float_left">搜索</button>
 			</form>

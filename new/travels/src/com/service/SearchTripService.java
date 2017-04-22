@@ -49,7 +49,7 @@ public class SearchTripService {
 		} else {
 			message.setSave(0);
 		}
-		searchTripDao.searDetailTripMessage(id, tripDetails);
+		searchTripDao.searchDetailTripMessage(id, tripDetails);
 		searchTripDao.searchTripComment(id, tripComments);
 
 		
@@ -71,6 +71,16 @@ public class SearchTripService {
 		}
 		
 		return status;
+		
+	}
+	
+	// 查看用户行程
+	public void searchUserTripMessage(int planId, TripMessage tripMessage, List<TripDetail> tripDetails) {
+		
+		SearchTripDao searchTripDao = new SearchTripDao();
+		
+		searchTripDao.searchIdTripMessage(planId, tripMessage);
+		searchTripDao.searchDetailTripMessage(planId, tripDetails);
 		
 	}
 	

@@ -1,6 +1,8 @@
 package com.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,20 +10,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.model.Foot;
-import com.service.FootService;
+import com.model.TripDetail;
+import com.model.TripMessage;
+import com.service.SearchTripService;
 
 /**
- * Servlet implementation class UpdateFootServlet
+ * Servlet implementation class UpdateTripServlet
  */
-@WebServlet("/UpdateFootServlet")
-public class UpdateFootServlet extends HttpServlet {
+@WebServlet("/UpdateTripServlet")
+public class UpdateTripServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateFootServlet() {
+    public UpdateTripServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,25 +41,20 @@ public class UpdateFootServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		int id = Integer.parseInt(request.getParameter("id"));
-		String dates = request.getParameter("dates");
-		int days = Integer.parseInt(request.getParameter("days"));
-		String introduce = request.getParameter("introduce");
-		Foot foot = new Foot();
-		FootService footService = new FootService();
-		String status = "";
 		
-		foot.setId(id);
-		foot.setDate(dates);
-		foot.setDay(days);
-		foot.setIntroduce(introduce);
+		int planId = Integer.parseInt(request.getParameter("planId"));
 		
-		status = footService.updateFoot(foot);
+		System.out.print(planId);
 		
-		response.getWriter().write(status);
-		response.getWriter().flush();
-		response.getWriter().close();
+		TripMessage tripMessage = new TripMessage();
+		List<TripDetail> tripDetails = new ArrayList<TripDetail>();
+		SearchTripService searchTripService = new SearchTripService();
+		
+		searchTripService.searchUserTripMessage(planId, tripMessage, tripDetails);
+		
+		request.setAttribute("tripMessage", tripMessage);
+		request.setAttribute("tripDetails", tripDetails);
+		request.getRequestDispatcher("pages/search/update.jsp").forward(request, response);
 		
 	}
 
