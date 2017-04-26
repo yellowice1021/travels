@@ -47,17 +47,25 @@ public class SearchDetailServlet extends HttpServlet {
 		
 		int id = Integer.parseInt(request.getParameter("id"));
 		int userid = (int) request.getSession().getAttribute("userId");
+		int currentPage = 1;
+		String bar = "";
 
 		SearchTripService searchTripService = new SearchTripService();
 		TripMessage message = new TripMessage();
 		List<TripDetail> tripDetails = new ArrayList<TripDetail>();
 		List<TripComment> tripComments = new ArrayList<TripComment>();
 		
-		searchTripService.searchTripDetail(userid, id, message, tripDetails, tripComments);
+		if(request.getParameter("page") != null) {
+			currentPage = Integer.parseInt(request.getParameter("page"));
+		}
+		
+		searchTripService.searchTripDetail(userid, id, message, tripDetails, tripComments, currentPage);
+		bar = searchTripService.searchCommentPage(currentPage, id);
 		
 		request.setAttribute("message", message);
 		request.setAttribute("tripDetails", tripDetails);
 		request.setAttribute("tripComments", tripComments);
+		request.setAttribute("bar", bar);
 		request.getRequestDispatcher("pages/search/detail.jsp").forward(request, response);
 		
 	}

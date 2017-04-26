@@ -137,10 +137,7 @@
 					</ul>
 				</div>
 				<div class="comment_page_box">
-					<a href="#">上一页</a>
-					<a href="#" class="active">1</a>
-					<a href="#">2</a>
-					<a href="#">下一页</a>
+					${bar}
 				</div>
 			</div>
 		</div>

@@ -214,6 +214,13 @@
   margin-left: 10px; }
   .my_trip_delete:hover {
     color: blue; }
+  .my_trip_delete a {
+    font-size: 14px;
+    padding: 0;
+    color: #B60F0E; }
+    .my_trip_delete a:hover {
+      text-decoration: none;
+      color: blue; }
 
 .my_save_box {
   padding-bottom: 80px; }
@@ -601,6 +608,12 @@
   float: left;
   padding: 5px;
   color: #666; }
+
+#foot_province {
+  width: 87px; }
+
+#foot_city {
+  width: 87px; }
 
 .foot_add_day_input input {
   width: 50px;

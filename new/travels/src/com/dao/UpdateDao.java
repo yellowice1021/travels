@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.model.TripDetail;
 import com.tools.DataBase;
 import com.tools.GetMD5;
 
@@ -97,6 +98,31 @@ public class UpdateDao {
 			ps.setString(3, city);
 			ps.setString(4, introduce);
 			ps.setString(5, username);
+			count = ps.executeUpdate();
+			ps.close();
+			conn.close();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return count;
+		
+	}
+	
+	// 更新行程信息
+	public int updateTripMessage(TripDetail tripDetail) {
+		
+		int count = 0;
+		try
+		{
+			Connection conn = DataBase.getConnection();
+			String sql = "update travels_detail set plan=?,food=?,live=? where id=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, tripDetail.getTrip());
+			ps.setString(2, tripDetail.getFood());
+			ps.setString(3, tripDetail.getLive());
+			ps.setInt(4, tripDetail.getId());
 			count = ps.executeUpdate();
 			ps.close();
 			conn.close();

@@ -1,8 +1,6 @@
 package com.servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,23 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import sun.management.counter.Variability;
-
-import com.dao.ReleaseTripDao;
-import com.model.TripDetail;
-import com.service.ReleaseTripService;
+import com.service.UpdateService;
 
 /**
- * Servlet implementation class ReleaseTripServlet
+ * Servlet implementation class UpdateTripDetailServlet
  */
-@WebServlet("/ReleaseTripServlet")
-public class ReleaseTripServlet extends HttpServlet {
+@WebServlet("/UpdateTripDetailServlet")
+public class UpdateTripDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ReleaseTripServlet() {
+    public UpdateTripDetailServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,17 +40,19 @@ public class ReleaseTripServlet extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		int planId = Integer.parseInt(request.getParameter("id"));
-		ReleaseTripService releaseTripService = new ReleaseTripService();
+		int planId  = Integer.parseInt(request.getParameter("planId"));
+		UpdateService updateService = new UpdateService();
 		String status = "";
 		
-		status = releaseTripService.addTripDetail(request);
+		status = updateService.UpdateTripDetail(request);
+		
 		if(status == "success") {
-			request.setAttribute("operator", "add");
+			request.setAttribute("operator", "update");
 			request.setAttribute("planId", planId);
 			request.getRequestDispatcher("pages/common/success.jsp").forward(request, response);
 		} else if(status == "error") {
-			request.setAttribute("operator", "add");
+			request.setAttribute("operator", "update");
+			request.setAttribute("planId", planId);
 			request.getRequestDispatcher("pages/common/fail.jsp").forward(request, response);
 		}
 		

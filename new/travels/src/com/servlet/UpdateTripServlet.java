@@ -34,6 +34,7 @@ public class UpdateTripServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 	}
 
 	/**
@@ -43,8 +44,6 @@ public class UpdateTripServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		int planId = Integer.parseInt(request.getParameter("planId"));
-		
-		System.out.print(planId);
 		
 		TripMessage tripMessage = new TripMessage();
 		List<TripDetail> tripDetails = new ArrayList<TripDetail>();

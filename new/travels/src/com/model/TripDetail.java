@@ -9,6 +9,7 @@ public class TripDetail {
 	private String trip;
 	private String food;
 	private String live;
+	private int id;
 	
 	public int getDay() {
 		return day;
@@ -33,6 +34,12 @@ public class TripDetail {
 	}
 	public void setLive(String live) {
 		this.live = live;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 }

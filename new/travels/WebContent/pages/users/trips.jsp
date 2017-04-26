@@ -48,7 +48,7 @@
 									<p>
 										<span>行程天数：${message.days}天</span>
 										<span class="my_trip_delete" ng-click="trip.deleteTripClick(${message.id})">删除行程</span>
-										<span class="my_trip_delete" ng-click="trip.updateTripClick(${message.id})">修改行程</span>		
+										<span class="my_trip_delete"><a href="<%=request.getContextPath() %>/UpdateTripServlet?planId=${message.id}">修改行程</a></span>		
 									</p>
 								</div>
 							</li>
@@ -56,10 +56,7 @@
 					</ul>
 				</div>
 				<div class="comment_page_box">
-					<a href="#">上一页</a>
-					<a href="#" class="active">1</a>
-					<a href="#">2</a>
-					<a href="#">下一页</a>
+					${bar}
 				</div>
 			</div>
 		</div>

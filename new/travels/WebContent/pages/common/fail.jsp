@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,10 +24,30 @@
 		<!--主要内容-->
 		<div class="comment_container">
 			<div class="comment_box result_box">
-				<div class="result_title_box">
-					<i style="background:url('<%= request.getContextPath() %>/img/error.png') no-repeat;background-size:50px 40px"></i>
-					<h4>添加失败</h4>
-				</div>
+				<c:choose>
+					<c:when test="${operator == 'update'}">
+						<div class="result_title_box">
+							<div class="result_title_text clearfix">
+								<i style="background:url('<%= request.getContextPath() %>/img/error.png') no-repeat;background-size:50px 40px"></i>
+								<h4>修改失败</h4>
+							</div>
+							<div class="result_title_choose">
+								<a href="<%=request.getContextPath() %>/UpdateTripServlet?planId=${planId}">重新修改</a>
+							</div>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="result_title_box">
+							<div class="result_title_text clearfix">
+								<i style="background:url('<%= request.getContextPath() %>/img/error.png') no-repeat;background-size:50px 40px"></i>
+								<h4>添加失败</h4>
+							</div>
+							<div class="result_title_choose">
+								<a href="<%=request.getContextPath() %>/pages/trip/place.jsp">重新添加</a>
+							</div>
+						</div>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 		

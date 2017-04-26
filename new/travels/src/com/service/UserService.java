@@ -122,26 +122,28 @@ public class UserService {
 		userDao.getSaveNumber(userId, users);
 		userDao.getTripNumber(userId, users);
 		userDao.getFootNumber(userId, users);
-		searchTripDao.searchIdTripList(userId, tripMessage);
-		searchTripDao.getSaveList(userId, tripMessageSave);
+		searchTripDao.searchIdTripList(userId, tripMessage, 1, 6);
+		searchTripDao.getSaveList(userId, tripMessageSave, 1, 6);
 		
 	}
 	
 	// 用户搜藏
-	public void getSaveMessage(int userId, List<TripMessage> tripMessages) {
+	public void getSaveMessage(int userId, List<TripMessage> tripMessages, int currentPage) {
 		
 		SearchTripDao searchTripDao = new SearchTripDao();
+		int showCount = 6;
 		
-		searchTripDao.getSaveList(userId, tripMessages);
+		searchTripDao.getSaveList(userId, tripMessages, currentPage, showCount);
 		
 	}
 	
 	// 用户行程
-	public void getUserTripMessage(int userId, List<TripMessage> tripMessages) {
+	public void getUserTripMessage(int userId, List<TripMessage> tripMessages, int currentPage) {
 		
 		SearchTripDao searchTripDao = new SearchTripDao();
+		int showCount = 6;
 		
-		searchTripDao.searchIdTripList(userId, tripMessages);
+		searchTripDao.searchIdTripList(userId, tripMessages, currentPage, showCount);
 		
 	}
 	

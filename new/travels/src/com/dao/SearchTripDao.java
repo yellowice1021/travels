@@ -21,14 +21,16 @@ import com.tools.GetMD5;
 public class SearchTripDao {
 
 	// 查看行程信息
-	public void searchCityTripMessage(String city, List<TripMessage> tripMessages) {
+	public void searchCityTripMessage(String city, List<TripMessage> tripMessages, int currentPage, int showCount) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan where destination=? order by id desc";
+		String sql = "select * from travels_plan where destination=? order by id desc limit ?,?";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, city);
+			ps.setInt(2, (currentPage-1)*showCount);
+			ps.setInt(3, showCount);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
@@ -52,13 +54,15 @@ public class SearchTripDao {
 	}
 	
 	// 查看全部行程信息
-	public void searchAllTripMessage(List<TripMessage> tripMessages) {
+	public void searchAllTripMessage(List<TripMessage> tripMessages, int currentPage, int showCount) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan order by id desc";
+		String sql = "select * from travels_plan order by id desc limit ?,?";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, (currentPage-1)*showCount);
+			ps.setInt(2, showCount);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
@@ -82,14 +86,16 @@ public class SearchTripDao {
 	}
 	
 	// 查看指定天数的全部行程信息
-	public void searchDayTripMessage(List<TripMessage> tripMessages, int day) {
+	public void searchDayTripMessage(List<TripMessage> tripMessages, int day, int currentPage, int showCount) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan where day=? order by id desc";
+		String sql = "select * from travels_plan where day=? order by id desc limit ?,?";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, day);
+			ps.setInt(2, (currentPage-1)*showCount);
+			ps.setInt(3, showCount);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
@@ -113,15 +119,17 @@ public class SearchTripDao {
 	}
 	
 	// 查看指定城市指定天数的全部行程信息
-	public void searchCityDayTripMessage(List<TripMessage> tripMessages, String city, int day) {
+	public void searchCityDayTripMessage(List<TripMessage> tripMessages, String city, int day, int currentPage, int showCount) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan where destination=? and day=? order by id desc";
+		String sql = "select * from travels_plan where destination=? and day=? order by id desc limit ?,?";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, city);
 			ps.setInt(2, day);
+			ps.setInt(3, (currentPage-1)*showCount);
+			ps.setInt(4, showCount);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
@@ -220,6 +228,7 @@ public class SearchTripDao {
 				detail.setTrip(rs.getString("plan"));
 				detail.setFood(rs.getString("food"));
 				detail.setLive(rs.getString("live"));
+				detail.setId(rs.getInt("id"));
 				tripDetails.add(detail);
 			}
 			rs.close();
@@ -234,14 +243,16 @@ public class SearchTripDao {
 	}
 	
 	// 查看指定行程的相关评论信息
-	public void searchTripComment(int id, List<TripComment> tripComments) {
+	public void searchTripComment(int id, List<TripComment> tripComments, int currentPage, int showCount) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select username,face,publishdate,comment from travels_comment,travels_users where travels_comment.userid=travels_users.id and planid=? order by publishdate desc";
+		String sql = "select username,face,publishdate,comment from travels_comment,travels_users where travels_comment.userid=travels_users.id and planid=? order by publishdate desc limit ?,?";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, id);
+			ps.setInt(2, (currentPage-1)*showCount);
+			ps.setInt(3, showCount);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
@@ -317,14 +328,16 @@ public class SearchTripDao {
 	}
 	
 	// 查找指定用户的全部行程信息
-	public void searchIdTripList(int userId, List<TripMessage> tripMessages) {
+	public void searchIdTripList(int userId, List<TripMessage> tripMessages, int currentPage, int showCount) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select * from travels_plan where userid=? order by id desc";
+		String sql = "select * from travels_plan where userid=? order by id desc limit ?,?";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, userId);
+			ps.setInt(2, (currentPage-1)*showCount);
+			ps.setInt(3, showCount);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
@@ -348,14 +361,16 @@ public class SearchTripDao {
 	}
 	
 	// 获取指定用户的全部收藏信息
-	public void getSaveList(int userId, List<TripMessage> tripMessages) {
+	public void getSaveList(int userId, List<TripMessage> tripMessages, int currentPgae, int showCount) {
 		
 		Connection conn = DataBase.getConnection();
-		String sql = "select travels_plan.id,day,title,picture,destination from travels_save,travels_plan where travels_save.userid=? and planid=travels_plan.id order by travels_plan.id desc";
+		String sql = "select travels_plan.id,day,title,picture,destination from travels_save,travels_plan where travels_save.userid=? and planid=travels_plan.id order by travels_plan.id desc limit ?,?";
 		try
 		{
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, userId);
+			ps.setInt(2, (currentPgae-1)*showCount);
+			ps.setInt(3, showCount);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
@@ -375,6 +390,58 @@ public class SearchTripDao {
 		{
 			e.printStackTrace();
 		}
+		
+	}
+	
+	// 查看所有行程数量
+	public int searchTripCount(String sql) {
+		
+		int count = 0;
+		Connection conn = DataBase.getConnection();
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				count = rs.getInt(1);
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return count;
+		
+	}
+	
+	public int searchCommentCount(int planId) {
+		
+		int count = 0;
+		Connection conn = DataBase.getConnection();
+		String sql = "select count(*) from travels_comment where planid=?";
+		
+		try
+		{
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, planId);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				count = rs.getInt(1);
+			}
+			rs.close();
+			ps.close();
+			conn.close();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return count;
 		
 	}
 	

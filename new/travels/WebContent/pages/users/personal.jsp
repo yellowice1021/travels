@@ -32,7 +32,7 @@
 					<div class="personal_message">
 						<div class="personal_name clearfix">
 							<h4>${users.userName}</h4>
-							<a href="#">编辑个人资料</a>
+							<a href="<%=request.getContextPath() %>/GetUserMessageServlet">编辑个人资料</a>
 						</div>
 						<div class="personal_number clearfix">
 							<div class="personal_number_box">

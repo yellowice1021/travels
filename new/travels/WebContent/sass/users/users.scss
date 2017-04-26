@@ -52,6 +52,15 @@
     &:hover {
         color: blue;
     }
+    a {
+        font-size: 14px;
+        padding: 0;
+        color: $login-register-color;
+        &:hover {
+            text-decoration: none;
+            color: blue;
+        }
+    }
 }
 
 // 我的收藏界面
@@ -394,6 +403,12 @@
         padding: 5px;
         color: #666;
     }
+}
+#foot_province {
+    width: 87px;
+}
+#foot_city {
+    width: 87px;
 }
 .foot_add_day_input {
     input {

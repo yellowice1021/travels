@@ -270,6 +270,19 @@ ul li {
     float: left;
     padding: 5px 0 0 5px; }
 
+.result_title_choose {
+  margin-top: 10px;
+  text-align: center; }
+  .result_title_choose a {
+    color: #B60F0E;
+    margin-left: 10px; }
+    .result_title_choose a:hover {
+      color: blue; }
+
+.result_title_text {
+  width: 150px;
+  margin: 0 auto; }
+
 .common_empty {
   width: 300px;
   height: 200px;

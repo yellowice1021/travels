@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,50 +64,55 @@
 					</div>
 					
 					<div class="day_box">
-						<form>
+						<form action="<%=request.getContextPath() %>/UpdateTripDetailServlet" method="post">
+							<input type="hidden" value="${tripMessage.id}" name="planId" />
+							<input type="hidden" value="${tripMessage.days}" name="days" />
 							<ul>
-								<li>
-									<div class="day_text clearfix">
-										<h4>第一天</h4>
-										<div class="day_place">
-											<span>请修改您第一天的行程安排</span>
+								<c:forEach var="detail" items="${tripDetails}">
+									<li>
+										<div class="day_text clearfix">
+											<h4>第${detail.day }天</h4>
+											<div class="day_place">
+												<span>请修改您第${detail.day }天的行程安排</span>
+											</div>
 										</div>
-									</div>
-									<div class="day_arrange">
-										<ul>
-											<li class="arrange_box">
-												<div class="arrange_header">
-													<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat -248px -248px;background-color:white"></i>
-													<h4>推荐行程</h4>
-												</div>
-												<div class="arrange_input">
-													<textarea></textarea>
-												</div>
-											</li>		
-											<li class="arrange_box">
-												<div class="arrange_header">
-													<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat -346px -248px;background-color:white"></i>
-													<h4>推荐美食</h4>
-												</div>
-												<div class="arrange_input">
-													<textarea></textarea>
-												</div>
-											</li>	
-											<li class="arrange_box">
-												<div class="arrange_header">
-													<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat -298px -248px;background-color:white"></i>
-													<h4>推荐住宿</h4>
-												</div>
-												<div class="arrange_input">
-													<textarea></textarea>
-												</div>
-											</li>	
-										</ul>
-									</div>
-								</li>
+										<div class="day_arrange">
+											<ul>
+												<input type="hidden" value="${detail.id}" name="id${detail.day }"/>
+												<li class="arrange_box">
+													<div class="arrange_header">
+														<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat -248px -248px;background-color:white"></i>
+														<h4>推荐行程</h4>
+													</div>
+													<div class="arrange_input">
+														<textarea name="trip${detail.day}">${detail.trip}</textarea>
+													</div>
+												</li>		
+												<li class="arrange_box">
+													<div class="arrange_header">
+														<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat -346px -248px;background-color:white"></i>
+														<h4>推荐美食</h4>
+													</div>
+													<div class="arrange_input">
+														<textarea name="food${detail.day}">${detail.food}</textarea>
+													</div>
+												</li>	
+												<li class="arrange_box">
+													<div class="arrange_header">
+														<i style="background:url('<%=request.getContextPath() %>/img/icon.png') no-repeat -298px -248px;background-color:white"></i>
+														<h4>推荐住宿</h4>
+													</div>
+													<div class="arrange_input">
+														<textarea name="live${detail.day }">${detail.live}</textarea>
+													</div>
+												</li>	
+											</ul>
+										</div>
+									</li>
+								</c:forEach>
 							</ul>
 							<div class="plan_button_box">
-								<button>确定</button>
+								<button>确定修改</button>
 							</div>
 						</form>
 					</div>

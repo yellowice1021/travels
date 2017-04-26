@@ -45,20 +45,29 @@ public class SearchTripServlet extends HttpServlet {
 		
 		String place = request.getParameter("place");
 		int day = Integer.parseInt(request.getParameter("day"));
+		int currentPage = 1;
+		String bar = "";
 		
 		byte[] bytes = place.getBytes("ISO-8859-1");	 
 		place = new String(bytes,"utf-8");
+		
+		if(request.getParameter("page") != null) {
+			currentPage = Integer.parseInt(request.getParameter("page"));
+		}
 		
 		List<TripMessage> tripMessages = new ArrayList<TripMessage>();
 		List<String> citys = new ArrayList<String>();
 		SearchTripService searchTripService = new SearchTripService();
 		
-		searchTripService.searchTripMessage(place, day, tripMessages, citys);
+		searchTripService.searchTripMessage(place, day, tripMessages, citys, currentPage);
+		
+		bar = searchTripService.searchTripPages(currentPage, place, day, "search", 0);
 		
 		request.setAttribute("tripMessage", tripMessages);
 		request.setAttribute("citys", citys);
 		request.setAttribute("place", place);
 		request.setAttribute("day", day);
+		request.setAttribute("bar", bar);
 		request.getRequestDispatcher("pages/search/search.jsp").forward(request, response);
 		
 	}

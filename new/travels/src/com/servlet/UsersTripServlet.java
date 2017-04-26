@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.model.TripMessage;
+import com.service.SearchTripService;
 import com.service.UserService;
 
 /**
@@ -45,10 +46,20 @@ public class UsersTripServlet extends HttpServlet {
 		int userId = (int) request.getSession().getAttribute("userId");
 		List<TripMessage> tripMessages = new ArrayList<TripMessage>();
 		UserService userService = new UserService();
+		SearchTripService searchTripService = new SearchTripService();
+		int currentPage = 1;
+		String bar = "";
 		
-		userService.getUserTripMessage(userId, tripMessages);
+		if(request.getParameter("page") != null) {
+			currentPage = Integer.parseInt(request.getParameter("page"));
+		}
+		
+		userService.getUserTripMessage(userId, tripMessages, currentPage);
+		
+		bar = searchTripService.searchTripPages(currentPage, "", 0, "users", userId);
 		
 		request.setAttribute("tripMessages", tripMessages);
+		request.setAttribute("bar", bar);
 		request.getRequestDispatcher("pages/users/trips.jsp").forward(request, response);
 		
 	}

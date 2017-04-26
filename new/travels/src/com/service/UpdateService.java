@@ -1,12 +1,16 @@
 package com.service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import sun.management.counter.Variability;
+
 import com.dao.UpdateDao;
+import com.model.TripDetail;
 import com.servlet.UpdateMessageServlet;
 import com.tools.Upload;
 
@@ -66,6 +70,42 @@ public class UpdateService {
 			status = "error";
 			return status;
 		}
+		return status;
+		
+	}
+	
+	// 修改行程信息
+	public String UpdateTripDetail(HttpServletRequest request) {
+		
+		String status = "success";
+		int row = 0;
+		
+		int days = Integer.parseInt(request.getParameter("days"));
+		List<TripDetail> tripDetails = new ArrayList<TripDetail>();
+		UpdateDao updateDao = new UpdateDao();
+		
+		for(int i = 1; i <= days; i++) {
+			String id = "id" + i;
+			String trip = "trip" + i;
+			String food = "food" + i;
+			String live = "live" + i;
+			TripDetail tripDetail = new TripDetail();
+			tripDetail.setDay(i);
+			tripDetail.setTrip(request.getParameter(trip));
+			tripDetail.setFood(request.getParameter(food));
+			tripDetail.setLive(request.getParameter(live));
+			tripDetail.setId(Integer.parseInt(request.getParameter(id)));
+			tripDetails.add(tripDetail);
+		}
+		
+		for(TripDetail tripDetail: tripDetails) {
+			row = updateDao.updateTripMessage(tripDetail);
+			if(row != 1) {
+				status = "error";
+				return status;
+			}
+		}
+		
 		return status;
 		
 	}

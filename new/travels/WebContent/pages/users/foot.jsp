@@ -44,23 +44,44 @@
 							<ul>
 								<li>
 									<label>地点：</label>
-									<select ng-model="addFoot.province" ng-init="addFoot.province='广东省'">
-										<option>广东省</option>
-										<option>福建省</option>
-										<option>湖南省</option>
-										<option>湖北省</option>
-										<option>北京</option>
-										<option>云南省</option>
-										<option>江苏省</option>
+									<select ng-model="addFoot.province" ng-init="addFoot.province='北京_0'" ng-change="addFoot.provinceChange(this)">
+										<option value= "北京_0" >北京</option> 
+										<option value= "上海_1" >上海</option> 
+										<option value= "天津_2" >天津</option> 
+										<option value= "重庆_3" >重庆</option> 
+										<option value= "河北_4" >河北</option> 
+										<option value= "山西_5" >山西</option> 
+										<option value= "内蒙古_6" >内蒙古</option> 
+										<option value= "辽宁_7" >辽宁</option> 
+										<option value= "吉林_8" >吉林</option> 
+										<option value= "黑龙江_9" >黑龙江</option> 
+										<option value= "江苏_10" >江苏</option> 
+										<option value= "浙江_11" >浙江</option> 
+										<option value= "安微_12" >安徽</option> 
+										<option value= "福建_13" >福建</option> 
+										<option value= "江西_14" >江西</option> 
+										<option value= "山东_15" >山东</option> 
+										<option value= "河南_16" >河南</option> 
+										<option value= "湖北_17" >湖北</option> 
+										<option value= "湖南_18" >湖南</option> 
+										<option value= "广东_19" >广东</option> 
+										<option value= "广西_20" >广西</option> 
+										<option value= "海南_21" >海南</option> 
+										<option value= "四川_22" >四川</option> 
+										<option value= "贵州_23" >贵州</option> 
+										<option value= "云南_24" >云南</option> 
+										<option value= "西藏_25" >西藏</option> 
+										<option value= "陕西_26" >陕西</option> 
+										<option value= "甘肃_27" >甘肃</option> 
+										<option value= "宁夏_28" >宁夏</option> 
+										<option value= "青海_29" >青海</option> 
+										<option value= "新疆_30" >新疆</option> 
+										<option value= "香港_31" >香港</option> 
+										<option value= "澳门_32" >澳门</option> 
+										<option value= "台湾_33" >台湾</option>
 									</select>
-									<select ng-model="addFoot.city" ng-init="addFoot.city='广州市'">
-										<option>广州市</option>
-										<option>深圳市</option>
-										<option>珠海市</option>
-										<option>惠州市</option>
-										<option>北京市</option>
-										<option>昆明</option>
-										<option>南京市</option>
+									<select ng-model="addFoot.city" ng-init="addFoot.city='东城'">
+										<option ng-repeat="x in addFoot.cityList">{{x}}</option>
 									</select>
 								</li>
 								<li>
@@ -96,24 +117,8 @@
 							<ul>
 								<li>
 									<label>地点：</label>
-									<select id="foot_province" disabled="disabled">
-										<option>广东省</option>
-										<option>福建省</option>
-										<option>湖南省</option>
-										<option>湖北省</option>
-										<option>北京</option>
-										<option>云南省</option>
-										<option>江苏省</option>
-									</select>
-									<select id="foot_city" disabled="disabled">
-										<option>广州市</option>
-										<option>深圳市</option>
-										<option>珠海市</option>
-										<option>惠州市</option>
-										<option>北京市</option>
-										<option>昆明</option>
-										<option>南京市</option>
-									</select>
+									<input id="foot_province" readonly="readonly"></input>
+									<input id="foot_city" readonly="readonly"></input>
 								</li>
 								<li>
 									<label>出发日期：</label>
