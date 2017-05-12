@@ -134,7 +134,7 @@
 								</li>
 								<li class="clearfix">
 									<label class="float_left">相关介绍：</label>
-									<textarea id="foot_introduce"></textarea>
+									<textarea id="foot_introduce" required></textarea>
 								</li>
 								<li>
 									<button id="foot_update">确定修改</button>

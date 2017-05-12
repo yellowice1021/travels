@@ -100,30 +100,33 @@ function pointDeatil(province, city, date, day, introduce, id) {
 		var updateDay = $("#foot_day").val();
 		var updateIntroduce = $("#foot_introduce").val();
 		
-		$.post("../../UpdateFootServlet",
-		{
-	    	id: id,
-	    	dates: updateDates,
-	    	days: updateDay,
-	    	introduce: updateIntroduce
-		},
-		function(data,status){
-			if(status == "success") {
-				switch(data) {
-					case 'updateError':
-						alert("修改失败，请重试");
-						break;
-					case 'success':
-						alert("修改成功");
-						location.reload();
-						break;
-					default:
-						break;
+		if(updateDates && updateDay && updateIntroduce) {
+			$.post("../../UpdateFootServlet",
+			{
+		    	id: id,
+		    	dates: updateDates,
+		    	days: updateDay,
+		    	introduce: updateIntroduce
+			},
+			function(data,status){
+				if(status == "success") {
+					switch(data) {
+						case 'updateError':
+							alert("修改失败，请重试");
+							break;
+						case 'success':
+							alert("修改成功");
+							location.reload();
+							break;
+						default:
+							break;
+					}
+				} else {
+					alert("修改失败，请重试");
 				}
-			} else {
-				alert("修改失败，请重试");
-			}
-		});
+			});
+		}
+		
 	});
 	
 	$(".delete_day_button").click(function() {
