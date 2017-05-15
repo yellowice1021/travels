@@ -80,7 +80,7 @@
 										<option value= "澳门_32" >澳门</option> 
 										<option value= "台湾_33" >台湾</option>
 									</select>
-									<select ng-model="addFoot.city" ng-init="addFoot.city='东城'">
+									<select ng-model="addFoot.city" ng-init="addFoot.city='北京'">
 										<option ng-repeat="x in addFoot.cityList">{{x}}</option>
 									</select>
 								</li>

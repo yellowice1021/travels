@@ -47,64 +47,60 @@
 				</div>
 				<div class="main_hot_box">
 					<ul class="clearfix">
-						<li>
-							<a href="#">
+						<li class="main_hot_first">
+							<a href="<%=request.getContextPath() %>/SearchTripServlet?place=北京&day=0">
 								<img src="../../images/home/hot/1.jpg" />
 							</a>
-							<div class="main_hot_detail">
-								<h4><a href="#">韩国乐天五天游</a></h4>
-								<p>目的地：韩国</p>
-								<p>行程天数：5天</p>
+							<div class="main_hot_place">
+								<span>北京</span>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="<%=request.getContextPath() %>/SearchTripServlet?place=上海&day=0">
 								<img src="../../images/home/hot/2.jpg" />
 							</a>
-							<div class="main_hot_detail">
-								<h4><a href="#">北京滑雪四天游</a></h4>
-								<p>目的地：北京</p>
-								<p>行程天数：4天</p>
+							<div class="main_hot_place">
+								<span>上海</span>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="<%=request.getContextPath() %>/SearchTripServlet?place=云南&day=0">
 								<img src="../../images/home/hot/3.jpg" />
 							</a>
-							<div class="main_hot_detail">
-								<h4><a href="#">张家界缆车五天游</a></h4>
-								<p>目的地：张家界</p>
-								<p>行程天数：5天</p>
+							<div class="main_hot_place">
+								<span>云南</span>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="<%=request.getContextPath() %>/SearchTripServlet?place=广州&day=0">
 								<img src="../../images/home/hot/4.jpg" />
 							</a>
-							<div class="main_hot_detail">
-								<h4><a href="#">海南海岛之旅四天游</a></h4>
-								<p>目的地：海南</p>
-								<p>行程天数：4天</p>
+							<div class="main_hot_place">
+								<span>广州</span>
 							</div>
 						</li>
 						<li>
-							<a href="#">
+							<a href="<%=request.getContextPath() %>/SearchTripServlet?place=南京&day=0">
 								<img src="../../images/home/hot/5.jpg" />
 							</a>
-							<div class="main_hot_detail">
-								<h4><a href="#">哈尔滨雪景五天游</a></h4>
-								<p>目的地：哈尔滨</p>
-								<p>行程天数：5天</p>
+							<div class="main_hot_place">
+								<span>南京</span>
 							</div>
 						</li>
 						<li>
-							<a href="#">
-								<img src="../../images/home/hot/1.jpg" />
+							<a href="<%=request.getContextPath() %>/SearchTripServlet?place=杭州&day=0">
+								<img src="../../images/home/hot/6.jpg" />
 							</a>
-							<div class="main_hot_detail">
-								<h4><a href="#">韩国乐天五天游</a></h4>
-								<p>目的地：韩国</p>
-								<p>行程天数：5天</p>
+							<div class="main_hot_place">
+								<span>杭州</span>
+							</div>
+						</li>
+						<li>
+							<a href="<%=request.getContextPath() %>/SearchTripServlet?place=哈尔滨&day=0">
+								<img src="../../images/home/hot/7.jpg" />
+							</a>
+							<div class="main_hot_place">
+								<span>哈尔滨</span>
 							</div>
 						</li>
 					</ul>

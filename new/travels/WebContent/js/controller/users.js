@@ -18,7 +18,10 @@ app.controller("registerController", function($scope, $http) {
 		surePasswords: "",
 		verifyCode: "",
 		registerSubmit: function() {
-			if(this.username && this.passwords && this.surePasswords && this.verifyCode) {
+			console.log(this.passwords);
+			console.log(this.surePasswords);
+			console.log(this.passwords == this.surePasswords);
+			if(this.username && this.passwords && this.surePasswords && this.verifyCode && this.passwords == this.surePasswords) {
 				$http({  
 				    method:'post',  
 				    url:'../../RegisterServlet',
@@ -318,15 +321,15 @@ app.controller("footController", function($scope, $http) {
 		dates: "",
 		days: "",
 		introduce: "",
-		cityList: ["东城","西城","崇文","宣武","朝阳","丰台","石景山","海淀","门头沟","房山","通州","顺义","昌平","大兴","平谷","怀柔","密云","延庆"],
+		cityList: ["北京"],
 		provinceChange: function() {
 			var index = this.province.split("_")[1];
 			var arr = new  Array();
 			
-			arr[0 ]="东城,西城,崇文,宣武,朝阳,丰台,石景山,海淀,门头沟,房山,通州,顺义,昌平,大兴,平谷,怀柔,密云,延庆";
-			arr[1 ]="黄浦,卢湾,徐汇,长宁,静安,普陀,闸北,虹口,杨浦,闵行,宝山,嘉定,浦东,金山,松江,青浦,南汇,奉贤,崇明";
+			arr[0 ]="北京";
+			arr[1 ]="上海";
 			arr[2 ]="和平,东丽,河东,西青,河西,津南,南开,北辰,河北,武清,红挢,塘沽,汉沽,大港,宁河,静海,宝坻,蓟县"; 
-			arr[3 ]="万州,涪陵,渝中,大渡口,江北,沙坪坝,九龙坡,南岸,北碚,万盛,双挢,渝北,巴南,黔江,长寿,綦江,潼南,铜梁,大足,荣昌,壁山,梁平,城口,丰都,垫江,武隆,忠县,开县,云阳,奉节,巫山,巫溪,石柱,秀山,酉阳,彭水,江津,合川,永川,南川"; 
+			arr[3 ]="重庆"; 
 			arr[4 ]="石家庄,邯郸,邢台,保定,张家口,承德,廊坊,唐山,秦皇岛,沧州,衡水"; 
 			arr[5 ]="太原,大同,阳泉,长治,晋城,朔州,吕梁,忻州,晋中,临汾,运城";
 			arr[6 ]="呼和浩特,包头,乌海,赤峰,呼伦贝尔盟,阿拉善盟,哲里木盟,兴安盟,乌兰察布盟,锡林郭勒盟,巴彦淖尔盟,伊克昭盟"; 
